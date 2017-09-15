@@ -2,10 +2,10 @@
  * Created by prashant on 15/09/17.
  */
 
-var boot = require('./boot');
-var levelOptions = require('./levelOptions');
-var preLoad = require('./preLoad');
-var initGame = require('./initGame');
+var boot = require('./states/boot');
+var levelOptions = require('./states/levelOptions');
+var preLoad = require('./states/preLoad');
+var initGame = require('./states/initGame');
 
 window.onload = function() {
 
