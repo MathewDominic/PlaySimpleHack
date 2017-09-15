@@ -8,7 +8,6 @@ preLoad.prototype = {
 
     preload: function() {
         var initial_state = this.game.cache.getJSON('initial_state');
-        console.log(initial_state);
     },
 
     create: function() {
