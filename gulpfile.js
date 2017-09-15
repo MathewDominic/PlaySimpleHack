@@ -10,7 +10,7 @@ paths = {
 };
 
 gulp.task('js', function() {
-    gulp.src(paths.js)
+    gulp.src(paths.entry)
         .pipe(browserify({
             insertGlobals : true,
             debug : !gulp.env.production

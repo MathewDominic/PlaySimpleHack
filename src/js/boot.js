@@ -2,6 +2,8 @@ var boot = function(game){
     console.log("Booting Highway to Hell!");
 };
 
+module.exports = boot;
+
 boot.prototype = {
 
     preload: function() {
@@ -12,11 +14,10 @@ boot.prototype = {
         this.game.load.image('f', 'img/forwardslash.png');
         this.game.load.image('b', 'img/backslash.png');
 
-        this.game.load.json('initial_state', 'states/initialStates.json');
+        this.game.load.json('initial_state', 'states/initialState.json');
     },
 
     create: function() {
-        // Scale if needed
-        this.game.start("Preload");
+        this.game.state.start("Preload");
     }
 };

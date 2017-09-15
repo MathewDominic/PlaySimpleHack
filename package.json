@@ -18,5 +18,8 @@
   "homepage": "https://github.com/MathewDominic/PlaySimpleHack#readme",
   "devDependencies": {
     "gulp-browserify": "^0.5.1"
+  },
+  "dependencies": {
+    "gulp": "^3.9.1"
   }
 }
