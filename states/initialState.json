@@ -1,0 +1,25 @@
+{
+  "1" : {
+    "no_of_rows": 3,
+    "no_of_cols": 3,
+    "ghosts": 3,
+    "vamps": 3,
+    "mummies": 0,
+    "grid": [
+      ["G", "G", "V"],
+      ["G", "M", "V"],
+      ["M", "M", "V"]
+    ]
+  },
+  "2" : {
+    "no_of_rows": 2,
+    "no_of_cols": 2,
+    "ghosts": 1,
+    "vamps": 0,
+    "mummies": 1,
+    "grid": [
+      ["E", "G"],
+      ["M", "E"]
+    ]
+  }
+}
