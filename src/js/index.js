@@ -2,7 +2,8 @@
  * Created by prashant on 15/09/17.
  */
 
-var boot = require('./boot.js');
+var boot = require('./boot');
+var levelOptions = require('./levelOptions');
 var preLoad = require('./preLoad');
 var initGame = require('./initGame');
 
@@ -19,10 +20,10 @@ window.onload = function() {
     console.log("Registering");
 
     game.state.add("Boot", boot);
+    game.state.start("LevelOptions", levelOptions);
     game.state.add("Preload", preLoad);
     game.state.add("InitGame",initGame);
     game.state.start("Boot");
-
 
     function onDown(sprite, pointer) {
         if (sprite.key === 'e')

@@ -13,11 +13,12 @@ boot.prototype = {
         this.game.load.image('e', 'img/emptyCell.png');
         this.game.load.image('f', 'img/forwardslash.png');
         this.game.load.image('b', 'img/backslash.png');
+        this.game.load.image('level', 'img/');
 
         this.game.load.json('initial_state', 'states/initialState.json');
     },
 
     create: function() {
-        this.game.state.start("Preload");
+        this.game.state.start("LevelOptions");
     }
 };
