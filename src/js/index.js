@@ -14,7 +14,7 @@ window.onload = function() {
 
     var newWidth = window.innerWidth * deviceRatio;
     var newHeight = window.innerHeight * deviceRatio;
-    var game = new Phaser.Game(newWidth, newHeight , Phaser.AUTO, 'HighwayToHell');
+    var game = new Phaser.Game(window.innerWidth, window.innerHeight , Phaser.AUTO, 'HighwayToHell');
 
     console.log("Registering");
 
