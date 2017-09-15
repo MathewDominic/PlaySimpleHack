@@ -20,7 +20,7 @@ window.onload = function() {
     console.log("Registering");
 
     game.state.add("Boot", boot);
-    game.state.start("LevelOptions", levelOptions);
+    game.state.add("LevelOptions", levelOptions);
     game.state.add("Preload", preLoad);
     game.state.add("InitGame",initGame);
     game.state.start("Boot");
