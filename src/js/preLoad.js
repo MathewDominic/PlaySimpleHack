@@ -20,6 +20,8 @@ preLoad.prototype = {
     },
 
     create: function() {
+        var sprite = this.game.add.sprite(0,0, 'bg');
+        sprite.scale.setTo(window.innerWidth/1440, window.innerHeight/2560);
         console.log("asd",initial_state);
         var rows = initial_state[this.game.cache['level']]["no_of_rows"];
         var cols = initial_state[this.game.cache['level']]["no_of_cols"];
@@ -45,8 +47,8 @@ preLoad.prototype = {
         for(var i=0;i<cols+2;i++) {
             var row = [];
             for(var j=0;j<rows+2;j++) {
-                yOff = window.innerHeight/4;
-                xOff = 150;
+                yOff = window.innerHeight/2.5;
+                xOff = window.innerWidth/4;
                 if((j == 0 || i == 0  || j == (cols+1) || i == (rows+1))) {
                     if((i==0 && j==0) || (i==0 && j==rows+1) || (i==cols+1 && j==0) || (i==cols+1 && j==rows+1)) {
                         continue;
@@ -68,13 +70,13 @@ preLoad.prototype = {
                 } else {
                     var cellSprite;
                     if(initial_state[this.game.cache['level']]["grid"][j-1][i-1] == '/') {
-                        var text = this.game.add.text(138 / deviceRatio * (i - 1) + xOff, 138 / deviceRatio * (j - 1) + yOff, '/', txtStyle);
-                        text.scale.setTo(1/deviceRatio, 1/deviceRatio);
-                        text.anchor.setTo(0, 0);
+                        var sprite = this.game.add.sprite(138 / deviceRatio * (i - 1) + xOff, 138 / deviceRatio * (j - 1) + yOff, 'f');
+                        sprite.scale.setTo(1 / deviceRatio, 1 / deviceRatio);
+                        sprite.inputEnabled = true;
                     } else if(initial_state[this.game.cache['level']]["grid"][j-1][i-1] == '\\') {
-                        var text = this.game.add.text(138 / deviceRatio * (i - 1) + xOff, 138 / deviceRatio * (j - 1) + yOff, '\\', txtStyle);
-                        text.scale.setTo(1/deviceRatio, 1/deviceRatio);
-                        text.anchor.setTo(0, 0);
+                        var sprite = this.game.add.sprite(138 / deviceRatio * (i - 1) + xOff, 138 / deviceRatio * (j - 1) + yOff, 'b');
+                        sprite.scale.setTo(1 / deviceRatio, 1 / deviceRatio);
+                        sprite.inputEnabled = true;
                     } else {
                         var sprite = this.game.add.sprite(138 / deviceRatio * (i - 1) + xOff, 138 / deviceRatio * (j - 1) + yOff, 'e');
                         sprite.scale.setTo(1 / deviceRatio, 1 / deviceRatio);

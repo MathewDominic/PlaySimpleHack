@@ -10,9 +10,10 @@ boot.prototype = {
         this.game.load.image('z', 'img/Zombie_m.png');
         this.game.load.image('g', 'img/Ghost_m.png');
         this.game.load.image('v', 'img/Vampire_m.png');
-        this.game.load.image('e', 'img/emptyCell.png');
-        this.game.load.image('f', 'img/forwardslash.png');
-        this.game.load.image('b', 'img/backslash.png');
+        this.game.load.image('e', 'img/Block.png');
+        this.game.load.image('f', 'img/Mirror_m.png');
+        this.game.load.image('b', 'img/Mirror_reverse_m.png');
+        this.game.load.image('bg', 'img/bp.jpg');
         this.game.load.image('play-button','img/play.png');
 
         this.game.load.json('initial_state', 'states/initialState.json');
