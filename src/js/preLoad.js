@@ -8,13 +8,20 @@ preLoad.prototype = {
 
     preload: function() {
         initial_state = this.game.cache.getJSON('initial_state');
-        gameLogic.init([["Z", "/", "B"], ["\\", "/", "\\"],["Z", "B", "B"]]);
+        level = this.game.cache['level'];
+        if(level){
+            this.game.cache['level'] += 1
+        } else {
+            this.game.cache['level'] = 1
+        }
+        console.log("sdf",level);
+        gameLogic.init(initial_state[this.game.cache['level']]["grid"]);
     },
 
     create: function() {
         console.log("asd",initial_state);
-        var rows = initial_state[1]["no_of_rows"];
-        var cols = initial_state[1]["no_of_cols"];
+        var rows = initial_state[this.game.cache['level']]["no_of_rows"];
+        var cols = initial_state[this.game.cache['level']]["no_of_cols"];
 
         var deviceRatio = 1/((window.innerWidth / window.innerHeight))*rows/2;
 
@@ -25,6 +32,14 @@ preLoad.prototype = {
         };
         var logo = [];
         var xOff, yOff;
+        var inputMatrix = initial_state[this.game.cache['level']]["grid"];
+        for(var i=0;i<inputMatrix.length;i++) {
+            for(var j=0;j<inputMatrix[i].length;j++) {
+                if(!((inputMatrix[i][j] == '/') || (inputMatrix[i][j] == '\\')))
+                    inputMatrix[i][j]='B';
+            }
+        }
+        console.log("asf",inputMatrix);
         var countsArr = gameLogic.getCount();
         for(var i=0;i<cols+2;i++) {
             var row = [];
@@ -45,21 +60,25 @@ preLoad.prototype = {
                     } else if(i == rows+1) {
                         count = countsArr["right"][j-1];
                     }
+
                     var text = this.game.add.text(138 / deviceRatio * (i - 1) + xOff, 138 / deviceRatio * (j - 1) + yOff, count.toString(), txtStyle);
                     text.scale.setTo(1/deviceRatio, 1/deviceRatio);
                     text.anchor.setTo(0, 0);
                 } else {
                     var cellSprite;
-                    if(initial_state[1]["grid"][i+1][j+1] == '/') {
+                    if(initial_state[this.game.cache['level']]["grid"][j-1][i-1] == '/') {
                         var text = this.game.add.text(138 / deviceRatio * (i - 1) + xOff, 138 / deviceRatio * (j - 1) + yOff, '/', txtStyle);
                         text.scale.setTo(1/deviceRatio, 1/deviceRatio);
                         text.anchor.setTo(0, 0);
+                    } else if(initial_state[this.game.cache['level']]["grid"][j-1][i-1] == '\\') {
+                        var text = this.game.add.text(138 / deviceRatio * (i - 1) + xOff, 138 / deviceRatio * (j - 1) + yOff, '\\', txtStyle);
+                        text.scale.setTo(1/deviceRatio, 1/deviceRatio);
+                        text.anchor.setTo(0, 0);
                     } else {
-
                         var sprite = this.game.add.sprite(138 / deviceRatio * (i - 1) + xOff, 138 / deviceRatio * (j - 1) + yOff, 'e');
                         sprite.scale.setTo(1 / deviceRatio, 1 / deviceRatio);
                         sprite.inputEnabled = true;
-                        sprite.events.onInputDown.add(onDown, this);
+                        sprite.events.onInputDown.add(onDown.bind(this,j,i,inputMatrix), this);
                         row.push(sprite);
                     }
                 }
@@ -68,15 +87,28 @@ preLoad.prototype = {
 //                logo.push(row);
         }
 
-        function onDown(sprite, pointer) {
-            if (sprite.key === 'e')
+        function onDown(i,j,inputMatrix,sprite, pointer) {
+            console.log(i,j);
+
+            if (sprite.key === 'e') {
                 sprite.loadTexture('z');
-            else if (sprite.key === 'z')
+                inputMatrix[i-1][j-1] = 'Z'
+            }
+            else if (sprite.key === 'z') {
                 sprite.loadTexture('g');
-            else if (sprite.key === 'g')
+                inputMatrix[i-1][j-1] = 'G'
+            }
+            else if (sprite.key === 'g') {
                 sprite.loadTexture('v');
-            else if (sprite.key === 'v')
+                inputMatrix[i-1][j-1] = 'V'
+            }
+            else if (sprite.key === 'v') {
                 sprite.loadTexture('e');
+                inputMatrix[i-1][j-1] = 'B'
+            }
+            if(gameLogic.isWin(inputMatrix)){
+                this.game.state.start("Preload")
+            }
         }
 
         //this.game.state.start("InitGame");

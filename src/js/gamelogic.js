@@ -71,7 +71,7 @@ module.exports = function () {
                 left : this.leftCount,
                 right : this.rightCount,
                 up : this.upCount,
-                down : this.rightCount
+                down : this.downCount
             }
         },
         transformMap : {
