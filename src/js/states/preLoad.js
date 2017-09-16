@@ -44,7 +44,7 @@ preLoad.prototype = {
         var bg = this.game.add.sprite(0,0, 'bg');
         bg.scale.setTo(window.innerWidth/1440, window.innerHeight/2560);
 
-        var back = this.game.add.sprite(0, 0, 'back');
+        var back = this.game.add.button(0, 0, 'back', this.navigateToLevelScreen);
         back.alignIn(bg, Phaser.TOP_LEFT);
         back.scale.setTo(1 / (devRatio) , 1 / (devRatio));
 
@@ -388,5 +388,9 @@ preLoad.prototype = {
             // }
         }
         //this.game.state.start("InitGame");
+    },
+
+    navigateToLevelScreen: function() {
+        this.game.state.start("LevelOptions");
     }
 };

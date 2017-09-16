@@ -24,7 +24,7 @@ levelOptions.prototype = {
         var sprite = this.game.add.sprite(0,0, 'backdrop');
         sprite.scale.setTo(window.innerWidth/1440, window.innerHeight/2560);
 
-        var back = this.game.add.sprite(0, 0, 'back_min');
+        var back = this.game.add.button(0, 0, 'back_min', this.navigateToHomeScreen);
         back.alignIn(sprite, Phaser.TOP_LEFT, -20, -20);
         back.scale.setTo(1 / (deviceRatio) , 1 / (deviceRatio), 0, 0);
 
@@ -71,5 +71,9 @@ levelOptions.prototype = {
     navigateToPuzzleL4: function() {
         this.game.cache['level'] = 60;
         this.game.state.start("Preload");
+    },
+
+    navigateToHomeScreen: function() {
+        this.game.state.start("Boot");
     }
 };
