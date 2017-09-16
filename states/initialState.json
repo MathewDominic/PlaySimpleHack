@@ -1,3 +1,4 @@
+
 {
   "1": {
     "no_of_rows": 2,
@@ -29,9 +30,9 @@
     "vamps": 0,
     "mummies": 2,
     "grid": [
+      ["B", "B", "B"],
       ["Z", "B", "B"],
-      ["B", "B", "Z"],
-      ["B", "B", "B"]
+      ["Z", "B", "B"]
     ]
   },
   "4": {
@@ -63,6 +64,18 @@
     "no_of_cols": 3,
     "ghosts": 0,
     "vamps": 0,
+    "mummies": 2,
+    "grid": [
+      ["B", "Z", "B"],
+      ["B", "B", "B"],
+      ["B", "Z", "B"]
+    ]
+  },
+  "7": {
+    "no_of_rows": 3,
+    "no_of_cols": 3,
+    "ghosts": 0,
+    "vamps": 0,
     "mummies": 3,
     "grid": [
       ["B", "B", "B"],
@@ -70,7 +83,85 @@
       ["B", "B", "B"]
     ]
   },
-  "7": {
+  "8": {
+    "no_of_rows": 4,
+    "no_of_cols": 4,
+    "ghosts": 0,
+    "vamps": 0,
+    "mummies": 2,
+    "grid": [
+      ["B", "Z", "B", "B"],
+      ["B", "B", "B", "B"],
+      ["B", "Z", "B", "B"],
+      ["B", "B", "B", "B"]
+    ]
+  },
+  "9": {
+    "no_of_rows": 4,
+    "no_of_cols": 4,
+    "ghosts": 0,
+    "vamps": 0,
+    "mummies": 2,
+    "grid": [
+      ["B", "B", "B", "B"],
+      ["B", "B", "B", "B"],
+      ["B", "B", "B", "B"],
+      ["Z", "B", "B", "Z"]
+    ]
+  },
+  "10": {
+    "no_of_rows": 4,
+    "no_of_cols": 4,
+    "ghosts": 0,
+    "vamps": 0,
+    "mummies": 3,
+    "grid": [
+      ["B", "B", "B", "Z"],
+      ["B", "B", "B", "Z"],
+      ["B", "B", "B", "Z"],
+      ["B", "B", "B", "B"]
+    ]
+  },
+  "11": {
+    "no_of_rows": 4,
+    "no_of_cols": 4,
+    "ghosts": 0,
+    "vamps": 0,
+    "mummies": 3,
+    "grid": [
+      ["Z", "Z", "B", "Z"],
+      ["B", "B", "B", "B"],
+      ["B", "B", "B", "B"],
+      ["B", "B", "B", "B"]
+    ]
+  },
+  "12": {
+    "no_of_rows": 4,
+    "no_of_cols": 4,
+    "ghosts": 0,
+    "vamps": 0,
+    "mummies": 4,
+    "grid": [
+      ["Z", "B", "B", "B"],
+      ["Z", "B", "B", "B"],
+      ["Z", "B", "B", "B"],
+      ["Z", "B", "B", "B"]
+    ]
+  },
+  "13": {
+    "no_of_rows": 4,
+    "no_of_cols": 4,
+    "ghosts": 0,
+    "vamps": 0,
+    "mummies": 4,
+    "grid": [
+      ["B", "B", "B", "B"],
+      ["Z", "Z", "Z", "Z"],
+      ["B", "B", "B", "B"],
+      ["B", "B", "B", "B"]
+    ]
+  },
+  "14": {
     "no_of_rows": 3,
     "no_of_cols": 3,
     "ghosts": 0,
@@ -82,7 +173,7 @@
       ["B", "B", "B"]
     ]
   },
-  "8": {
+  "15": {
     "no_of_rows": 3,
     "no_of_cols": 3,
     "ghosts": 0,
@@ -94,7 +185,7 @@
       ["B", "B", "B"]
     ]
   },
-  "9": {
+  "16": {
     "no_of_rows": 3,
     "no_of_cols": 3,
     "ghosts": 0,
@@ -106,7 +197,7 @@
       ["B", "Z", "B"]
     ]
   },
-  "10": {
+  "17": {
     "no_of_rows": 3,
     "no_of_cols": 3,
     "ghosts": 0,
@@ -118,7 +209,7 @@
       ["/", "Z", "B"]
     ]
   },
-  "11": {
+  "18": {
     "no_of_rows": 3,
     "no_of_cols": 3,
     "ghosts": 0,
@@ -130,7 +221,7 @@
       ["B", "B", "B"]
     ]
   },
-  "12": {
+  "19": {
     "no_of_rows": 3,
     "no_of_cols": 3,
     "ghosts": 0,
@@ -142,7 +233,7 @@
       ["\\", "Z", "Z"]
     ]
   },
-  "13": {
+  "20": {
     "no_of_rows": 3,
     "no_of_cols": 3,
     "ghosts": 0,
@@ -154,7 +245,7 @@
       ["B", "B", "B"]
     ]
   },
-  "14": {
+  "21": {
     "no_of_rows": 3,
     "no_of_cols": 3,
     "ghosts": 0,
@@ -166,7 +257,59 @@
       ["B", "B", "Z"]
     ]
   },
-  "15": {
+  "22": {
+    "no_of_rows": 4,
+    "no_of_cols": 4,
+    "ghosts": 0,
+    "vamps": 0,
+    "mummies": 2,
+    "grid": [
+      ["B", "B", "B", "B"],
+      ["Z", "B", "B", "Z"],
+      ["B", "B", "B", "B"],
+      ["\\", "B", "B", "B"]
+    ]
+  },
+  "23": {
+    "no_of_rows": 4,
+    "no_of_cols": 4,
+    "ghosts": 0,
+    "vamps": 0,
+    "mummies": 2,
+    "grid": [
+      ["B", "B", "B", "B"],
+      ["B", "B", "Z", "B"],
+      ["B", "Z", "/", "B"],
+      ["B", "B", "B", "B"]
+    ]
+  },
+  "24": {
+    "no_of_rows": 4,
+    "no_of_cols": 4,
+    "ghosts": 0,
+    "vamps": 0,
+    "mummies": 2,
+    "grid": [
+      ["Z", "/", "B", "Z"],
+      ["B", "B", "B", "B"],
+      ["B", "B", "B", "B"],
+      ["B", "B", "B", "B"]
+    ]
+  },
+  "25": {
+    "no_of_rows": 4,
+    "no_of_cols": 4,
+    "ghosts": 0,
+    "vamps": 0,
+    "mummies": 2,
+    "grid": [
+      ["Z", "\\", "B", "B"],
+      ["B", "B", "B", "B"],
+      ["B", "B", "B", "Z"],
+      ["B", "B", "B", "B"]
+    ]
+  },
+  "26": {
     "no_of_rows": 3,
     "no_of_cols": 3,
     "ghosts": 0,
@@ -178,7 +321,7 @@
       ["Z", "Z", "B"]
     ]
   },
-  "16": {
+  "27": {
     "no_of_rows": 3,
     "no_of_cols": 3,
     "ghosts": 0,
@@ -190,7 +333,7 @@
       ["Z", "B", "B"]
     ]
   },
-  "17": {
+  "28": {
     "no_of_rows": 3,
     "no_of_cols": 3,
     "ghosts": 0,
@@ -202,7 +345,7 @@
       ["/", "Z", "B"]
     ]
   },
-  "18": {
+  "29": {
     "no_of_rows": 3,
     "no_of_cols": 3,
     "ghosts": 0,
@@ -214,7 +357,7 @@
       ["Z", "B", "\\"]
     ]
   },
-  "19": {
+  "30": {
     "no_of_rows": 3,
     "no_of_cols": 3,
     "ghosts": 0,
@@ -226,7 +369,7 @@
       ["B", "B", "B"]
     ]
   },
-  "20": {
+  "31": {
     "no_of_rows": 3,
     "no_of_cols": 3,
     "ghosts": 0,
@@ -238,7 +381,7 @@
       ["\\", "/", "B"]
     ]
   },
-  "21": {
+  "32": {
     "no_of_rows": 3,
     "no_of_cols": 3,
     "ghosts": 0,
@@ -250,7 +393,7 @@
       ["B", "Z", "Z"]
     ]
   },
-  "22": {
+  "33": {
     "no_of_rows": 3,
     "no_of_cols": 3,
     "ghosts": 0,
@@ -262,7 +405,7 @@
       ["Z", "B", "B"]
     ]
   },
-  "23": {
+  "34": {
     "no_of_rows": 3,
     "no_of_cols": 3,
     "ghosts": 0,
@@ -274,7 +417,150 @@
       ["B", "Z", "B"]
     ]
   },
-  "24": {
+  "35": {
+    "no_of_rows": 4,
+    "no_of_cols": 4,
+    "ghosts": 0,
+    "vamps": 0,
+    "mummies": 3,
+    "grid": [
+      ["Z", "B", "B", "B"],
+      ["B", "B", "B", "B"],
+      ["B", "Z", "/", "Z"],
+      ["B", "B", "B", "B"]
+    ]
+  },
+  "36": {
+    "no_of_rows": 4,
+    "no_of_cols": 4,
+    "ghosts": 0,
+    "vamps": 0,
+    "mummies": 3,
+    "grid": [
+      ["\\", "B", "B", "B"],
+      ["Z", "B", "B", "B"],
+      ["Z", "Z", "B", "B"],
+      ["B", "B", "B", "B"]
+    ]
+  },
+  "37": {
+    "no_of_rows": 4,
+    "no_of_cols": 4,
+    "ghosts": 0,
+    "vamps": 0,
+    "mummies": 3,
+    "grid": [
+      ["Z", "B", "B", "B"],
+      ["B", "\\", "Z", "B"],
+      ["B", "B", "/", "B"],
+      ["B", "Z", "B", "B"]
+    ]
+  },
+  "38": {
+    "no_of_rows": 4,
+    "no_of_cols": 4,
+    "ghosts": 0,
+    "vamps": 0,
+    "mummies": 3,
+    "grid": [
+      ["/", "B", "Z", "\\"],
+      ["Z", "B", "B", "B"],
+      ["B", "B", "B", "B"],
+      ["B", "B", "B", "Z"]
+    ]
+  },
+  "39": {
+    "no_of_rows": 4,
+    "no_of_cols": 4,
+    "ghosts": 0,
+    "vamps": 0,
+    "mummies": 3,
+    "grid": [
+      ["B", "Z", "/", "B"],
+      ["/", "B", "B", "Z"],
+      ["B", "B", "B", "B"],
+      ["Z", "B", "B", "/"]
+    ]
+  },
+  "40": {
+    "no_of_rows": 4,
+    "no_of_cols": 4,
+    "ghosts": 0,
+    "vamps": 0,
+    "mummies": 3,
+    "grid": [
+      ["B", "B", "B", "B"],
+      ["Z", "B", "B", "B"],
+      ["B", "\\", "Z", "/"],
+      ["\\", "Z", "B", "B"]
+    ]
+  },
+  "41": {
+    "no_of_rows": 4,
+    "no_of_cols": 4,
+    "ghosts": 0,
+    "vamps": 0,
+    "mummies": 3,
+    "grid": [
+      ["B", "B", "B", "B"],
+      ["\\", "/", "B", "Z"],
+      ["Z", "B", "B", "B"],
+      ["\\", "B", "Z", "B"]
+    ]
+  },
+  "42": {
+    "no_of_rows": 4,
+    "no_of_cols": 4,
+    "ghosts": 0,
+    "vamps": 0,
+    "mummies": 4,
+    "grid": [
+      ["/", "Z", "Z", "B"],
+      ["B", "B", "B", "B"],
+      ["B", "Z", "B", "\\"],
+      ["B", "B", "B", "Z"]
+    ]
+  },
+  "43": {
+    "no_of_rows": 4,
+    "no_of_cols": 4,
+    "ghosts": 0,
+    "vamps": 0,
+    "mummies": 4,
+    "grid": [
+      ["B", "B", "Z", "B"],
+      ["Z", "/", "B", "B"],
+      ["B", "B", "/", "Z"],
+      ["B", "Z", "B", "B"]
+    ]
+  },
+  "44": {
+    "no_of_rows": 4,
+    "no_of_cols": 4,
+    "ghosts": 0,
+    "vamps": 0,
+    "mummies": 4,
+    "grid": [
+      ["/", "B", "B", "B"],
+      ["Z", "\\", "Z", "B"],
+      ["B", "Z", "/", "Z"],
+      ["B", "B", "B", "/"]
+    ]
+  },
+  "45": {
+    "no_of_rows": 4,
+    "no_of_cols": 4,
+    "ghosts": 0,
+    "vamps": 0,
+    "mummies": 4,
+    "grid": [
+      ["Z", "B", "B", "Z"],
+      ["\\", "B", "\\", "B"],
+      ["B", "B", "B", "/"],
+      ["Z", "B", "B", "Z"]
+    ]
+  },
+  "46": {
     "no_of_rows": 3,
     "no_of_cols": 3,
     "ghosts": 1,
@@ -286,7 +572,7 @@
       ["B", "B", "B"]
     ]
   },
-  "25": {
+  "47": {
     "no_of_rows": 3,
     "no_of_cols": 3,
     "ghosts": 2,
@@ -296,6 +582,301 @@
       ["B", "B", "B"],
       ["G", "\\", "B"],
       ["B", "G", "B"]
+    ]
+  },
+  "48": {
+    "no_of_rows": 3,
+    "no_of_cols": 3,
+    "ghosts": 1,
+    "vamps": 0,
+    "mummies": 1,
+    "grid": [
+      ["G", "B", "B"],
+      ["B", "Z", "\\"],
+      ["B", "B", "B"]
+    ]
+  },
+  "49": {
+    "no_of_rows": 3,
+    "no_of_cols": 3,
+    "ghosts": 1,
+    "vamps": 0,
+    "mummies": 1,
+    "grid": [
+      ["B", "B", "B"],
+      ["G", "Z", "\\"],
+      ["B", "B", "B"]
+    ]
+  },
+  "50": {
+    "no_of_rows": 3,
+    "no_of_cols": 3,
+    "ghosts": 1,
+    "vamps": 0,
+    "mummies": 2,
+    "grid": [
+      ["B", "Z", "B"],
+      ["B", "Z", "\\"],
+      ["B", "B", "Z"]
+    ]
+  },
+  "51": {
+    "no_of_rows": 3,
+    "no_of_cols": 3,
+    "ghosts": 1,
+    "vamps": 0,
+    "mummies": 2,
+    "grid": [
+      ["/", "B", "G"],
+      ["Z", "B", "B"],
+      ["B", "B", "Z"]
+    ]
+  },
+  "52": {
+    "no_of_rows": 3,
+    "no_of_cols": 3,
+    "ghosts": 1,
+    "vamps": 0,
+    "mummies": 2,
+    "grid": [
+      ["Z", "\\", "Z"],
+      ["B", "B", "B"],
+      ["G", "/", "B"]
+    ]
+  },
+  "53": {
+    "no_of_rows": 3,
+    "no_of_cols": 3,
+    "ghosts": 2,
+    "vamps": 0,
+    "mummies": 2,
+    "grid": [
+      ["Z", "/", "B"],
+      ["B", "G", "B"],
+      ["G", "/", "Z"]
+    ]
+  },
+  "54": {
+    "no_of_rows": 3,
+    "no_of_cols": 3,
+    "ghosts": 3,
+    "vamps": 0,
+    "mummies": 1,
+    "grid": [
+      ["G", "B", "\\"],
+      ["B", "B", "G"],
+      ["\\", "G", "Z"]
+    ]
+  },
+  "55": {
+    "no_of_rows": 3,
+    "no_of_cols": 3,
+    "ghosts": 3,
+    "vamps": 0,
+    "mummies": 1,
+    "grid": [
+      ["B", "G", "B"],
+      ["G", "/", "G"],
+      ["B", "Z", "/"]
+    ]
+  },
+  "56": {
+    "no_of_rows": 3,
+    "no_of_cols": 3,
+    "ghosts": 2,
+    "vamps": 0,
+    "mummies": 2,
+    "grid": [
+      ["B", "G", "B"],
+      ["Z", "/", "G"],
+      ["B", "Z", "/"]
+    ]
+  },
+  "57": {
+    "no_of_rows": 3,
+    "no_of_cols": 3,
+    "ghosts": 2,
+    "vamps": 0,
+    "mummies": 2,
+    "grid": [
+      ["B", "G", "Z"],
+      ["B", "/", "G"],
+      ["Z", "B", "/"]
+    ]
+  },
+  "58": {
+    "no_of_rows": 3,
+    "no_of_cols": 3,
+    "ghosts": 3,
+    "vamps": 0,
+    "mummies": 2,
+    "grid": [
+      ["/", "G", "B"],
+      ["Z", "/", "G"],
+      ["Z", "G", "B"]
+    ]
+  },
+  "59": {
+    "no_of_rows": 3,
+    "no_of_cols": 3,
+    "ghosts": 2,
+    "vamps": 0,
+    "mummies": 2,
+    "grid": [
+      ["/", "G", "\\"],
+      ["Z", "Z", "G"],
+      ["B", "B", "B"]
+    ]
+  },
+  "60": {
+    "no_of_rows": 4,
+    "no_of_cols": 4,
+    "ghosts": 1,
+    "vamps": 0,
+    "mummies": 3,
+    "grid": [
+      ["/", "Z", "B", "B"],
+      ["B", "B", "B", "B"],
+      ["Z", "G", "\\", "Z"],
+      ["B", "B", "B", "B"]
+    ]
+  },
+  "61": {
+    "no_of_rows": 4,
+    "no_of_cols": 4,
+    "ghosts": 1,
+    "vamps": 0,
+    "mummies": 3,
+    "grid": [
+      ["B", "B", "G", "Z"],
+      ["B", "B", "Z", "B"],
+      ["B", "B", "/", "/"],
+      ["Z", "B", "B", "B"]
+    ]
+  },
+  "62": {
+    "no_of_rows": 4,
+    "no_of_cols": 4,
+    "ghosts": 1,
+    "vamps": 0,
+    "mummies": 4,
+    "grid": [
+      ["Z", "B", "/", "Z"],
+      ["/", "B", "B", "B"],
+      ["G", "B", "B", "/"],
+      ["Z", "B", "B", "Z"]
+    ]
+  },
+  "63": {
+    "no_of_rows": 4,
+    "no_of_cols": 4,
+    "ghosts": 1,
+    "vamps": 0,
+    "mummies": 4,
+    "grid": [
+      ["B", "/", "Z", "B"],
+      ["Z", "G", "Z", "/"],
+      ["Z", "B", "B", "B"],
+      ["\\", "B", "B", "B"]
+    ]
+  },
+  "64": {
+    "no_of_rows": 4,
+    "no_of_cols": 4,
+    "ghosts": 2,
+    "vamps": 0,
+    "mummies": 4,
+    "grid": [
+      ["G", "\\", "B", "B"],
+      ["Z", "G", "Z", "B"],
+      ["B", "Z", "Z", "B"],
+      ["\\", "B", "/", "B"]
+    ]
+  },
+  "65": {
+    "no_of_rows": 4,
+    "no_of_cols": 4,
+    "ghosts": 2,
+    "vamps": 0,
+    "mummies": 4,
+    "grid": [
+      ["B", "\\", "G", "B"],
+      ["Z", "G", "Z", "B"],
+      ["B", "Z", "Z", "B"],
+      ["\\", "B", "/", "B"]
+    ]
+  },
+  "66": {
+    "no_of_rows": 4,
+    "no_of_cols": 4,
+    "ghosts": 3,
+    "vamps": 0,
+    "mummies": 3,
+    "grid": [
+      ["Z", "B", "B", "/"],
+      ["Z", "B", "B", "B"],
+      ["G", "G", "\\", "B"],
+      ["Z", "B", "G", "/"]
+    ]
+  },
+  "67": {
+    "no_of_rows": 3,
+    "no_of_cols": 3,
+    "ghosts": 0,
+    "vamps": 1,
+    "mummies": 0,
+    "grid": [
+      ["B", "B", "B"],
+      ["V", "/", "B"],
+      ["B", "B", "B"]
+    ]
+  },
+  "68": {
+    "no_of_rows": 3,
+    "no_of_cols": 3,
+    "ghosts": 1,
+    "vamps": 1,
+    "mummies": 1,
+    "grid": [
+      ["B", "Z", "B"],
+      ["B", "V", "B"],
+      ["G", "/", "B"]
+    ]
+  },
+  "69": {
+    "no_of_rows": 3,
+    "no_of_cols": 3,
+    "ghosts": 1,
+    "vamps": 1,
+    "mummies": 1,
+    "grid": [
+      ["Z", "G", "B"],
+      ["B", "V", "B"],
+      ["B", "\\", "Z"]
+    ]
+  },
+  "70": {
+    "no_of_rows": 3,
+    "no_of_cols": 3,
+    "ghosts": 1,
+    "vamps": 1,
+    "mummies": 1,
+    "grid": [
+      ["/", "Z", "B"],
+      ["V", "B", "B"],
+      ["\\", "B", "G"]
+    ]
+  },
+  "71": {
+    "no_of_rows": 3,
+    "no_of_cols": 3,
+    "ghosts": 1,
+    "vamps": 1,
+    "mummies": 1,
+    "grid": [
+      ["/", "V", "G"],
+      ["Z", "B", "B"],
+      ["B", "B", "B"]
     ]
   }
 }
