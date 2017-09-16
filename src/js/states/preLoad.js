@@ -44,9 +44,6 @@ preLoad.prototype = {
         back.alignIn(bg, Phaser.TOP_LEFT);
         back.scale.setTo(1 / (devRatio) , 1 / (devRatio));
 
-        // var back = this.game.add.sprite(window.innerWidth/12,window.innerHeight/16, 'back');
-        // back.scale.setTo(1 / (devRatio/rows*3) , 1 / (devRatio/rows*3));
-
         var holpos = this.game.add.sprite(0, 0, 'holpos');
         holpos.alignIn(bg, Phaser.TOP_CENTER);
         holpos.scale.setTo(1 / (devRatio) , 1 / (devRatio));
@@ -56,15 +53,6 @@ preLoad.prototype = {
         var holpostext = this.game.add.text(0, 0, this.game.cache['cash'], style);
         holpostext.alignIn(holpos, Phaser.CENTER, 10, 10);
         holpostext.scale.setTo(1 / (devRatio) , 1 / (devRatio));
-
-        // var holpostext = this.game.add.text(window.innerWidth/7+window.innerWidth/4,window.innerHeight/10, this.game.cache['cash'], {});
-        // holpostext.scale.setTo(1 / (deviceRatio/rows*3), 1 / (deviceRatio/rows*3));
-
-        // var holpos = this.game.add.sprite(window.innerWidth/12+window.innerWidth/4,window.innerHeight/18, 'holpos');
-        // holpos.scale.setTo(1 / ((deviceRatio/rows*3)*3), 1 / ((deviceRatio/rows*3)*3));
-
-        //var timer = this.game.add.sprite(window.innerWidth/12+ window.innerWidth/4 + window.innerWidth/4,window.innerHeight/16, 'timer');
-        //timer.scale.setTo(1 / (deviceRatio/rows*3), 1 / (deviceRatio/rows*3));
 
         var timer = this.game.add.sprite(0, 0, 'timer');
         timer.alignIn(bg, Phaser.TOP_RIGHT);
@@ -83,10 +71,6 @@ preLoad.prototype = {
         ghostCount.scale.setTo(1 / (deviceRatio/rows*3), 1 / (deviceRatio/rows*3));
         var vampireCount = this.game.add.sprite(window.innerWidth/4+ window.innerWidth/6 + window.innerWidth/6,window.innerHeight/6, initial_state[this.game.cache['level']]['vamps'].toString());
         vampireCount.scale.setTo(1 / (deviceRatio/rows*3), 1 / (deviceRatio/rows*3));
-        // var vampire = this.game.add.sprite(window.innerWidth/4,window.innerHeight/8, 'vampire');
-        // vampire.scale.setTo(1 / deviceRatio , 1 / deviceRatio);
-        // var zombie = this.game.add.sprite(window.innerWidth/4+window.innerWidth/6,window.innerHeight/8, 'zombie');
-        // zombie.scale.setTo(1 / deviceRatio, 1 / deviceRatio);
 
         var txtStyle = {
             font: '65px Arial',
@@ -183,11 +167,6 @@ preLoad.prototype = {
         show_error.inputEnabled = true;
         show_error.events.onInputDown.add(showError, this);
 
-        // var show_error = this.game.add.sprite(window.innerWidth/4,7*window.innerHeight/8, 'se');
-        // show_error.scale.setTo(1 / (deviceRatio/rows*3) , 1 / (deviceRatio/rows*3));
-        // show_error.inputEnabled = true;
-        // show_error.events.onInputDown.add(showError, this);
-
         var show_monster = this.game.add.sprite(0, 0, 'sm');
         show_monster.alignIn(bg, Phaser.BOTTOM_CENTER, 0, -50);
         show_monster.scale.setTo(1.5 / (devRatio) , 1.5 / (devRatio));
@@ -200,16 +179,6 @@ preLoad.prototype = {
         turn_mirror.inputEnabled = true;
         turn_mirror.events.onInputDown.add(turnMiror, this);
 
-        //var show_monster = this.game.add.sprite(window.innerWidth/4+window.innerWidth/6,7*window.innerHeight/8, 'sm');
-        // show_monster.scale.setTo(1 / (deviceRatio/rows*3), 1 / (deviceRatio/rows*3));
-        // show_monster.inputEnabled = true;
-        // show_monster.events.onInputDown.add(showMonster, this);
-
-        // var turn_mirror = this.game.add.sprite(window.innerWidth/4+ window.innerWidth/6 + window.innerWidth/6,7*window.innerHeight/8, 'tm');
-        // turn_mirror.scale.setTo(1 / (deviceRatio/rows*3), 1 / (deviceRatio/rows*3));
-        // turn_mirror.inputEnabled = true;
-        // turn_mirror.events.onInputDown.add(turnMiror, this);
-        
         function turnMiror(sprite, pointer) {
             this.isRotateEnabled = true
         }
