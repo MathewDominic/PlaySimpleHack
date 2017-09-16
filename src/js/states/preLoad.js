@@ -13,7 +13,7 @@ preLoad.prototype = {
         if(level){
             this.game.cache['level'] += 1
         } else {
-            this.game.cache['level'] = 17
+            this.game.cache['level'] = 1
         }
         this.inputMatrix = null
         console.log("sdf",level);
@@ -113,6 +113,9 @@ preLoad.prototype = {
                         sprite.anchor.setTo(0, 0);
                         this.inputMatrix[j-1][i-1] = initial_state[this.game.cache['level']]["grid"][j-1][i-1]
                         inputMatrix[j-1][i-1] = initial_state[this.game.cache['level']]["grid"][j-1][i-1]
+                        if(gameLogic.isWin(inputMatrix)){
+                            this.game.state.start("Preload")
+                        }
                         this.showCorrect = null
                     } else if(this.showWrong && this.showWrong[0] == j-1 && this.showWrong[1] == i-1){
                         var sprite = this.game.add.sprite(138 / deviceRatio * (i - 1) + xOff, 138 / deviceRatio * (j - 1) + yOff, 'back');
