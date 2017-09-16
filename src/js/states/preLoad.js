@@ -35,18 +35,18 @@ preLoad.prototype = {
         var los = [];
 
         var deviceRatio = 1/((window.innerWidth / window.innerHeight))*rows/2;
-        var sprite = this.game.add.sprite(0,0, 'bg');
-        sprite.scale.setTo(window.innerWidth/1440, window.innerHeight/2560);
+        var bg = this.game.add.sprite(0,0, 'bg');
+        bg.scale.setTo(window.innerWidth/1440, window.innerHeight/2560);
 
         var back = this.game.add.sprite(0, 0, 'back');
-        back.alignIn(sprite, Phaser.TOP_LEFT);
+        back.alignIn(bg, Phaser.TOP_LEFT);
         back.scale.setTo(1 / (deviceRatio) , 1 / (deviceRatio));
 
         // var back = this.game.add.sprite(window.innerWidth/12,window.innerHeight/16, 'back');
         // back.scale.setTo(1 / (deviceRatio/rows*3) , 1 / (deviceRatio/rows*3));
 
         var holpos = this.game.add.sprite(0, 0, 'holpos');
-        holpos.alignIn(sprite, Phaser.TOP_CENTER);
+        holpos.alignIn(bg, Phaser.TOP_CENTER);
         holpos.scale.setTo(1 / (deviceRatio) , 1 / (deviceRatio));
 
         var style = {align: "center"};
@@ -65,10 +65,8 @@ preLoad.prototype = {
         //timer.scale.setTo(1 / (deviceRatio/rows*3), 1 / (deviceRatio/rows*3));
 
         var timer = this.game.add.sprite(0, 0, 'timer');
-        timer.alignIn(sprite, Phaser.TOP_RIGHT);
+        timer.alignIn(bg, Phaser.TOP_RIGHT);
         timer.scale.setTo(1 / (deviceRatio) , 1 / (deviceRatio), 0, 0);
-
-
 
         var zombie = this.game.add.sprite(window.innerWidth/4,window.innerHeight/12, 'zombie');
         zombie.scale.setTo(1 / (deviceRatio/rows*3) , 1 / (deviceRatio/rows*3));
@@ -177,20 +175,38 @@ preLoad.prototype = {
             }
         }
 
-        var show_error = this.game.add.sprite(window.innerWidth/4,7*window.innerHeight/8, 'se');
-        show_error.scale.setTo(1 / (deviceRatio/rows*3) , 1 / (deviceRatio/rows*3));
+        var show_error = this.game.add.sprite(0, 0, 'se');
+        show_error.alignIn(bg, Phaser.BOTTOM_LEFT, -50, -50);
+        show_error.scale.setTo(1.5 / (deviceRatio) , 1.5 / (deviceRatio));
         show_error.inputEnabled = true;
         show_error.events.onInputDown.add(showError, this);
 
-        var show_monster = this.game.add.sprite(window.innerWidth/4+window.innerWidth/6,7*window.innerHeight/8, 'sm');
-        show_monster.scale.setTo(1 / (deviceRatio/rows*3), 1 / (deviceRatio/rows*3));
+        // var show_error = this.game.add.sprite(window.innerWidth/4,7*window.innerHeight/8, 'se');
+        // show_error.scale.setTo(1 / (deviceRatio/rows*3) , 1 / (deviceRatio/rows*3));
+        // show_error.inputEnabled = true;
+        // show_error.events.onInputDown.add(showError, this);
+
+        var show_monster = this.game.add.sprite(0, 0, 'sm');
+        show_monster.alignIn(bg, Phaser.BOTTOM_CENTER, 0, -50);
+        show_monster.scale.setTo(1.5 / (deviceRatio) , 1.5 / (deviceRatio));
         show_monster.inputEnabled = true;
         show_monster.events.onInputDown.add(showMonster, this);
 
-        var turn_mirror = this.game.add.sprite(window.innerWidth/4+ window.innerWidth/6 + window.innerWidth/6,7*window.innerHeight/8, 'tm');
-        turn_mirror.scale.setTo(1 / (deviceRatio/rows*3), 1 / (deviceRatio/rows*3));
+        var turn_mirror = this.game.add.sprite(0, 0, 'tm');
+        turn_mirror.alignIn(bg, Phaser.BOTTOM_RIGHT, -50, -50);
+        turn_mirror.scale.setTo(1.5 / (deviceRatio) , 1.5 / (deviceRatio));
         turn_mirror.inputEnabled = true;
         turn_mirror.events.onInputDown.add(turnMiror, this);
+
+        //var show_monster = this.game.add.sprite(window.innerWidth/4+window.innerWidth/6,7*window.innerHeight/8, 'sm');
+        // show_monster.scale.setTo(1 / (deviceRatio/rows*3), 1 / (deviceRatio/rows*3));
+        // show_monster.inputEnabled = true;
+        // show_monster.events.onInputDown.add(showMonster, this);
+
+        // var turn_mirror = this.game.add.sprite(window.innerWidth/4+ window.innerWidth/6 + window.innerWidth/6,7*window.innerHeight/8, 'tm');
+        // turn_mirror.scale.setTo(1 / (deviceRatio/rows*3), 1 / (deviceRatio/rows*3));
+        // turn_mirror.inputEnabled = true;
+        // turn_mirror.events.onInputDown.add(turnMiror, this);
         
         function turnMiror(sprite, pointer) {
             this.isRotateEnabled = true
