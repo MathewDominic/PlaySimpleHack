@@ -69,9 +69,9 @@ preLoad.prototype = {
         //var timer = this.game.add.sprite(window.innerWidth/12+ window.innerWidth/4 + window.innerWidth/4,window.innerHeight/16, 'timer');
         //timer.scale.setTo(1 / (deviceRatio/rows*3), 1 / (deviceRatio/rows*3));
 
-        var timer = this.game.add.sprite(0, 0, 'timer');
-        timer.alignIn(bg, Phaser.TOP_RIGHT);
-        timer.scale.setTo(1 / (devRatio) , 1 / (devRatio), 0, 0);
+        // var timer = this.game.add.sprite(0, 0, 'timer');
+        // timer.alignIn(bg, Phaser.TOP_RIGHT);
+        // timer.scale.setTo(1 / (devRatio) , 1 / (devRatio), 0, 0);
 
 		var music = new Phaser.Sound(this.game,'music',1,true);
         music.play();
