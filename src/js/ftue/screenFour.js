@@ -13,13 +13,11 @@ screenFour.prototype = {
     create: function() {
         var sprite = this.game.add.sprite(0, 0, 'ftue_4');
         sprite.scale.setTo(window.innerWidth/1440, window.innerHeight/2560);
-        var next_button = this.game.add.button(0, 0, 'next_ftue', this.nextScreen);
-        sprite.scale.setTo(0.5, 0.5);
-        next_button.alignTo(sprite, Phaser.BOTTOM_CENTER, 0, 0);
+        sprite.alignIn(this.game.world.bounds, Phaser.TOP_CENTER);
+        var next_button = this.game.add.button((this.game.world.width)/4, (2.3*this.game.world.height)/3, 'next_ftue', this.nextScreen);
     },
 
     nextScreen: function() {
         this.game.state.start("Preload");
     }
 };
-
