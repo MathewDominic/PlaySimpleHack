@@ -63,7 +63,6 @@ boot.prototype = {
         this.game.load.json('initial_state', 'states/initialState.json');
         // this.game.load.audio('music', ['img/music.mp3']);
         this.game.load.audio('music', ['img/music.mp3']);
-        this.game.cache['level'] = 17;
     },
 
     create: function() {
@@ -83,11 +82,6 @@ boot.prototype = {
     },
 
     playTheGame: function(){
-        // this.game.state.start("Preload");
-        //this.game.state.start("ScreenOne");
-        console.log("Play the level...");
         this.game.state.start("LevelOptions");
-        //this.game.state.start("Preload");
-        // this.game.state.start("ScreenOne");
     }
 };

@@ -36,29 +36,40 @@ levelOptions.prototype = {
         holy_potion.alignIn(sprite, Phaser.TOP_RIGHT, 0, -10);
         holy_potion.scale.setTo(1 / (deviceRatio) , 1 / (deviceRatio), 0, 0);
 
-
         var l1 = this.game.add.button(0, 0, 'l1', this.navigateToFtue);
         l1.alignTo(quests, Phaser.BOTTOM_CENTER, 0, 100);
         l1.scale.setTo(1.5/deviceRatio, 1.5/deviceRatio);
 
-        var l2 = this.game.add.button(0,0, 'l2', this.navigateToPuzzle);
+        var l2 = this.game.add.button(0,0, 'l2', this.navigateToPuzzleL2);
         l2.scale.setTo(1.5/deviceRatio, 1.5/deviceRatio);
         l2.alignTo(l1, Phaser.BOTTOM_CENTER);
 
-        var l3 = this.game.add.button(0, 0, 'l3', this.navigateToPuzzle);
+        var l3 = this.game.add.button(0, 0, 'l3', this.navigateToPuzzleL3);
         l3.scale.setTo(1.5/deviceRatio, 1.5/deviceRatio);
         l3.alignTo(l2, Phaser.BOTTOM_CENTER);
 
-        var l4 = this.game.add.button(0, 0, 'l4', this.navigateToPuzzle);
+        var l4 = this.game.add.button(0, 0, 'l4', this.navigateToPuzzleL4);
         l4.scale.setTo(1.5/deviceRatio, 1.5/deviceRatio);
         l4.alignTo(l3, Phaser.BOTTOM_CENTER);
     },
 
     navigateToFtue: function() {
+        this.game.cache['level'] = 0;
         this.game.state.start("ScreenOne");
     },
 
-    navigateToPuzzle: function() {
+    navigateToPuzzleL2: function() {
+        this.game.cache['level'] = 20;
+        this.game.state.start("Preload");
+    },
+
+    navigateToPuzzleL3: function() {
+        this.game.cache['level'] = 40;
+        this.game.state.start("Preload");
+    },
+
+    navigateToPuzzleL4: function() {
+        this.game.cache['level'] = 60;
         this.game.state.start("Preload");
     }
 };
