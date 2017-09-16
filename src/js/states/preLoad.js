@@ -13,7 +13,7 @@ preLoad.prototype = {
         if(level){
             this.game.cache['level'] += 1
         } else {
-            this.game.cache['level'] = 1
+            this.game.cache['level'] = 2
         }
         cash = this.game.cache['cash']
         if(!cash && cash != 0){
@@ -34,26 +34,28 @@ preLoad.prototype = {
         var cols = initial_state[this.game.cache['level']]["no_of_cols"];
         var los = [];
 
+
+        var devRatio = 1/((window.innerWidth / window.innerHeight));
         var deviceRatio = 1/((window.innerWidth / window.innerHeight))*rows/2;
         var bg = this.game.add.sprite(0,0, 'bg');
         bg.scale.setTo(window.innerWidth/1440, window.innerHeight/2560);
 
         var back = this.game.add.sprite(0, 0, 'back');
         back.alignIn(bg, Phaser.TOP_LEFT);
-        back.scale.setTo(1 / (deviceRatio) , 1 / (deviceRatio));
+        back.scale.setTo(1 / (devRatio) , 1 / (devRatio));
 
         // var back = this.game.add.sprite(window.innerWidth/12,window.innerHeight/16, 'back');
-        // back.scale.setTo(1 / (deviceRatio/rows*3) , 1 / (deviceRatio/rows*3));
+        // back.scale.setTo(1 / (devRatio/rows*3) , 1 / (devRatio/rows*3));
 
         var holpos = this.game.add.sprite(0, 0, 'holpos');
         holpos.alignIn(bg, Phaser.TOP_CENTER);
-        holpos.scale.setTo(1 / (deviceRatio) , 1 / (deviceRatio));
+        holpos.scale.setTo(1 / (devRatio) , 1 / (devRatio));
 
         var style = {align: "center"};
 
         var holpostext = this.game.add.text(0, 0, this.game.cache['cash'], style);
         holpostext.alignIn(holpos, Phaser.CENTER, 10, 10);
-        holpostext.scale.setTo(1 / (deviceRatio) , 1 / (deviceRatio));
+        holpostext.scale.setTo(1 / (devRatio) , 1 / (devRatio));
 
         // var holpostext = this.game.add.text(window.innerWidth/7+window.innerWidth/4,window.innerHeight/10, this.game.cache['cash'], {});
         // holpostext.scale.setTo(1 / (deviceRatio/rows*3), 1 / (deviceRatio/rows*3));
@@ -66,7 +68,7 @@ preLoad.prototype = {
 
         var timer = this.game.add.sprite(0, 0, 'timer');
         timer.alignIn(bg, Phaser.TOP_RIGHT);
-        timer.scale.setTo(1 / (deviceRatio) , 1 / (deviceRatio), 0, 0);
+        timer.scale.setTo(1 / (devRatio) , 1 / (devRatio), 0, 0);
 
         var zombie = this.game.add.sprite(window.innerWidth/4,window.innerHeight/12, 'zombie');
         zombie.scale.setTo(1 / (deviceRatio/rows*3) , 1 / (deviceRatio/rows*3));
@@ -177,7 +179,7 @@ preLoad.prototype = {
 
         var show_error = this.game.add.sprite(0, 0, 'se');
         show_error.alignIn(bg, Phaser.BOTTOM_LEFT, -50, -50);
-        show_error.scale.setTo(1.5 / (deviceRatio) , 1.5 / (deviceRatio));
+        show_error.scale.setTo(1.5 / (devRatio) , 1.5 / (devRatio));
         show_error.inputEnabled = true;
         show_error.events.onInputDown.add(showError, this);
 
@@ -188,13 +190,13 @@ preLoad.prototype = {
 
         var show_monster = this.game.add.sprite(0, 0, 'sm');
         show_monster.alignIn(bg, Phaser.BOTTOM_CENTER, 0, -50);
-        show_monster.scale.setTo(1.5 / (deviceRatio) , 1.5 / (deviceRatio));
+        show_monster.scale.setTo(1.5 / (devRatio) , 1.5 / (devRatio));
         show_monster.inputEnabled = true;
         show_monster.events.onInputDown.add(showMonster, this);
 
         var turn_mirror = this.game.add.sprite(0, 0, 'tm');
         turn_mirror.alignIn(bg, Phaser.BOTTOM_RIGHT, -50, -50);
-        turn_mirror.scale.setTo(1.5 / (deviceRatio) , 1.5 / (deviceRatio));
+        turn_mirror.scale.setTo(1.5 / (devRatio) , 1.5 / (devRatio));
         turn_mirror.inputEnabled = true;
         turn_mirror.events.onInputDown.add(turnMiror, this);
 
