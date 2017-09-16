@@ -13,6 +13,7 @@ boot.prototype = {
         this.game.load.image('e', 'img/Block.png');
         this.game.load.image('f', 'img/Mirror_m.png');
         this.game.load.image('b', 'img/Mirror_reverse_m.png');
+        this.game.load.image('x', 'img/x.png');
         this.game.load.image('bg', 'img/bp.jpg');
         this.game.load.image('play-button','img/play.png');
 
@@ -46,7 +47,23 @@ boot.prototype = {
         this.game.load.image('4','img/4.png');
         this.game.load.image('5','img/5.png');
 
+        this.game.load.image('bd','img/bd.png');
+        this.game.load.image('bl','img/bl.png');
+        this.game.load.image('br','img/br.png');
+        this.game.load.image('bu','img/bu.png');
+        this.game.load.image('fl','img/fl.png');
+        this.game.load.image('fr','img/fr.png');
+        this.game.load.image('fd','img/fd.png');
+        this.game.load.image('fu','img/fu.png');
+        this.game.load.image('up','img/up.png');
+        this.game.load.image('left','img/left.png');
+        this.game.load.image('right','img/right.png');
+        this.game.load.image('down','img/down.png');
+
         this.game.load.json('initial_state', 'states/initialState.json');
+        // this.game.load.audio('music', ['img/music.mp3']);
+        this.game.load.audio('music', ['img/music.mp3']);
+        this.game.cache['level'] = 17;
     },
 
     create: function() {
@@ -70,5 +87,7 @@ boot.prototype = {
         //this.game.state.start("ScreenOne");
         console.log("Play the level...");
         this.game.state.start("LevelOptions");
+        //this.game.state.start("Preload");
+        // this.game.state.start("ScreenOne");
     }
 };

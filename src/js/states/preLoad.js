@@ -13,7 +13,7 @@ preLoad.prototype = {
         if(level){
             this.game.cache['level'] += 1
         } else {
-            this.game.cache['level'] = 2
+            this.game.cache['level'] = 60
         }
         cash = this.game.cache['cash']
         if(!cash && cash != 0){
@@ -27,6 +27,9 @@ preLoad.prototype = {
     inputMatrix: null,
 
     create: function() {
+        var inputMatrix = JSON.parse(JSON.stringify(initial_state[this.game.cache['level']]["grid"]));
+        console.log("json",initial_state[this.game.cache['level']]);
+
         // var zombieCount = initial_state[this.game.cache['level']]['mummies'];
         // var ghostCount = initial_state[this.game.cache['level']]['ghosts'];
         // var VampireCount = initial_state[this.game.cache['level']]['vamps'];
@@ -58,6 +61,12 @@ preLoad.prototype = {
         timer.alignIn(bg, Phaser.TOP_RIGHT);
         timer.scale.setTo(1 / (devRatio) , 1 / (devRatio), 0, 0);
 
+        if(!this.playing){
+            var music = new Phaser.Sound(this.game,'music',1,true);
+            music.play();
+            this.playing = true
+        }
+
         var zombie = this.game.add.sprite(window.innerWidth/4,window.innerHeight/12, 'zombie');
         zombie.scale.setTo(1 / (deviceRatio/rows*3) , 1 / (deviceRatio/rows*3));
         var ghost = this.game.add.sprite(window.innerWidth/4+window.innerWidth/6,window.innerHeight/12, 'ghost');
@@ -79,7 +88,7 @@ preLoad.prototype = {
         };
         var logo = [];
         var xOff, yOff;
-        var inputMatrix = JSON.parse(JSON.stringify(initial_state[this.game.cache['level']]["grid"]));
+
         for(var i=0;i<inputMatrix.length;i++) {
             for(var j=0;j<inputMatrix[i].length;j++) {
                 if(!((inputMatrix[i][j] == '/') || (inputMatrix[i][j] == '\\')))
@@ -132,7 +141,7 @@ preLoad.prototype = {
                         }
                         this.showCorrect = null
                     } else if(this.showWrong && this.showWrong[0] == j-1 && this.showWrong[1] == i-1){
-                        var sprite = this.game.add.sprite(138 / deviceRatio * (i - 1) + xOff, 138 / deviceRatio * (j - 1) + yOff, 'back');
+                        var sprite = this.game.add.sprite(138 / deviceRatio * (i - 1) + xOff, 138 / deviceRatio * (j - 1) + yOff, 'x');
                         sprite.scale.setTo(1/deviceRatio, 1/deviceRatio);
                         sprite.inputEnabled = true;
                         sprite.events.onInputDown.add(onDown.bind(this,j,i,inputMatrix), this);
@@ -239,9 +248,15 @@ preLoad.prototype = {
                 this.inputMatrix[i-1][j-1] = 'Z'
             }
             else if (sprite.key === 'z') {
-                sprite.loadTexture('g');
-                inputMatrix[i-1][j-1] = 'G'
-                this.inputMatrix[i-1][j-1] = 'G'
+                if(initial_state[this.game.cache['level']]["ghosts"] == 0 && initial_state[this.game.cache['level']]["vamps"] == 0) {
+                    sprite.loadTexture('e');
+                    inputMatrix[i-1][j-1] = 'E';
+                    this.inputMatrix[i-1][j-1] = 'E';
+                } else {
+                    sprite.loadTexture('g');
+                    inputMatrix[i - 1][j - 1] = 'G'
+                    this.inputMatrix[i - 1][j - 1] = 'G'
+                }
             }
             else if (sprite.key === 'g') {
                 sprite.loadTexture('v');
@@ -277,10 +292,21 @@ preLoad.prototype = {
                 direction = "left";
                 j--;
             }
+            los = [];
             lineOfSight(i,j,direction,inputMatrix,rows,cols,this.game);
             var sprite2 = [];
             for(var k = 0; k < los.length; k++) {
-                var spriteTemp = this.game.add.sprite(los[k][0], los[k][1], 'g');
+                // debugger;
+                var img = 'e';
+                if(los[k][3] == 'E') {
+                    img = los[k][2];
+                } else if(los[k][3] == '/') {
+                    img = 'f' + los[k][2][0];
+                }
+                else if(los[k][3] == '\\') {
+                    img = 'b' + los[k][2][0];
+                }
+                var spriteTemp = this.game.add.sprite(los[k][0], los[k][1], img);
                 spriteTemp.scale.setTo(1 / deviceRatio, 1 / deviceRatio);
                 sprite2.push(spriteTemp);
                 this.game.time.events.add(Phaser.Timer.SECOND * 3, function() {
@@ -294,9 +320,9 @@ preLoad.prototype = {
             if((j == 0 || i == 0  || j == (cols+1) || i == (rows+1))) {
                 return;
             }
-            console.log("this",game);
+            console.log("this",game,inputMatrix);
             console.log("current",i,j, direction);
-            los.push([138 / deviceRatio * (j - 1) + xOff, 138 / deviceRatio * (i - 1) + yOff,direction]);
+            los.push([138 / deviceRatio * (j - 1) + xOff, 138 / deviceRatio * (i - 1) + yOff,direction,inputMatrix[i-1][j-1]]);
             // var sprite = game.add.sprite(138 / deviceRatio * (i - 1) + xOff, 138 / deviceRatio * (j - 1) + yOff, 'b');
             // console.log("cordiates",138 / deviceRatio * (i - 1) + xOff, 138 / deviceRatio * (j - 1) + yOff);
             // sprite.scale.setTo(1 / deviceRatio, 1 / deviceRatio);
