@@ -10,10 +10,15 @@ preLoad.prototype = {
     preload: function() {
         initial_state = this.game.cache.getJSON('initial_state');
         level = this.game.cache['level'];
+        if(level && level == 2){
+            this.game.state.start("ScreenOneB")
+        } else if(level && level == 13){
+            this.game.state.start("ScreenOneC")
+        }
         if(level){
             this.game.cache['level'] += 1
         } else {
-            this.game.cache['level'] = 60
+            this.game.cache['level'] = 1
         }
         cash = this.game.cache['cash']
         if(!cash && cash != 0){

@@ -17,10 +17,19 @@ boot.prototype = {
         this.game.load.image('bg', 'img/bp.jpg');
         this.game.load.image('play-button','img/play.png');
 
-        this.game.load.image('ftue_1', 'img/ftue/1a-min.jpg');
-        this.game.load.image('ftue_2', 'img/ftue/2-min.png');
-        this.game.load.image('ftue_3', 'img/ftue/3-min.png');
-        this.game.load.image('ftue_4', 'img/ftue/4-min.png');
+        this.game.load.image('ftue_1', 'img/ftue/1a.jpg');
+        this.game.load.image('ftue_2', 'img/ftue/2a.jpg');
+        this.game.load.image('ftue_3', 'img/ftue/3a.jpg');
+        this.game.load.image('ftue_4', 'img/ftue/4a.jpg');
+        this.game.load.image('ftue_1b', 'img/ftue/1b.jpg');
+        this.game.load.image('ftue_2b', 'img/ftue/2b.jpg');
+        this.game.load.image('ftue_3b', 'img/ftue/3b.jpg');
+        this.game.load.image('ftue_4b', 'img/ftue/4b.jpg');
+        this.game.load.image('ftue_5', 'img/ftue/5a.jpg');
+        this.game.load.image('ftue_6', 'img/ftue/6a.jpg');
+        this.game.load.image('ftue_7', 'img/ftue/7a.jpg');
+        this.game.load.image('ftue_1c', 'img/ftue/1c.jpg');
+        this.game.load.image('ftue_2c', 'img/ftue/2c.jpg');
         this.game.load.image('next_ftue', 'img/ftue/next-min.png');
 
         this.game.load.image('bg_min', 'img/ftue/BG-min.jpg');
@@ -63,7 +72,6 @@ boot.prototype = {
         this.game.load.json('initial_state', 'states/initialState.json');
         // this.game.load.audio('music', ['img/music.mp3']);
         this.game.load.audio('music', ['img/music.mp3']);
-        this.game.cache['level'] = 17;
     },
 
     create: function() {
@@ -83,7 +91,7 @@ boot.prototype = {
     },
 
     playTheGame: function(){
-        this.game.state.start("Preload");
-        // this.game.state.start("ScreenOne");
+        // this.game.state.start("Preload");
+        this.game.state.start("ScreenOne");
     }
 };
