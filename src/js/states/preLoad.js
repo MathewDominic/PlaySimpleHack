@@ -13,7 +13,7 @@ preLoad.prototype = {
         if(level){
             this.game.cache['level'] += 1
         } else {
-            this.game.cache['level'] = 60
+            this.game.cache['level'] = 1
         }
         cash = this.game.cache['cash']
         if(!cash && cash != 0){
@@ -100,7 +100,7 @@ preLoad.prototype = {
         var txtStyle = {
             font: '65px Arial',
             fill: '#ffffff',
-            align: 'center'
+            align: 'right'
         };
         var logo = [];
         var xOff, yOff;
@@ -187,7 +187,7 @@ preLoad.prototype = {
         }
 
         var show_error = this.game.add.sprite(0, 0, 'se');
-        show_error.alignIn(bg, Phaser.BOTTOM_LEFT, -50, -50);
+        show_error.alignIn(bg, Phaser.BOTTOM_LEFT);
         show_error.scale.setTo(1.5 / (devRatio) , 1.5 / (devRatio));
         show_error.inputEnabled = true;
         show_error.events.onInputDown.add(showError, this);
@@ -198,13 +198,13 @@ preLoad.prototype = {
         // show_error.events.onInputDown.add(showError, this);
 
         var show_monster = this.game.add.sprite(0, 0, 'sm');
-        show_monster.alignIn(bg, Phaser.BOTTOM_CENTER, 0, -50);
+        show_monster.alignIn(bg, Phaser.BOTTOM_CENTER);
         show_monster.scale.setTo(1.5 / (devRatio) , 1.5 / (devRatio));
         show_monster.inputEnabled = true;
         show_monster.events.onInputDown.add(showMonster, this);
 
         var turn_mirror = this.game.add.sprite(0, 0, 'tm');
-        turn_mirror.alignIn(bg, Phaser.BOTTOM_RIGHT, -50, -50);
+        turn_mirror.alignIn(bg, Phaser.BOTTOM_RIGHT);
         turn_mirror.scale.setTo(1.5 / (devRatio) , 1.5 / (devRatio));
         turn_mirror.inputEnabled = true;
         turn_mirror.events.onInputDown.add(turnMiror, this);
