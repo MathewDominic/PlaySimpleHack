@@ -22,6 +22,11 @@ boot.prototype = {
         this.game.load.image('ftue_4', 'img/ftue/4-min.png');
         this.game.load.image('next_ftue', 'img/ftue/next-min.png');
 
+        this.game.load.image('bg_min', 'img/ftue/BG-min.jpg');
+        this.game.load.image('proceed-button', 'img/ftue/proceed-min.png');
+        this.game.load.image('spash_min', 'img/ftue/splash-min.png');
+        this.game.load.image('hth_title', 'img/ftue/title-min.png');
+
 		this.game.load.image('vampire','img/Vampire.png');
         this.game.load.image('zombie','img/Zombie.png');
         this.game.load.image('ghost','img/Ghost.png');
@@ -40,7 +45,6 @@ boot.prototype = {
         this.game.load.image('3','img/3.png');
         this.game.load.image('4','img/4.png');
         this.game.load.image('5','img/5.png');
-
 
         this.game.load.json('initial_state', 'states/initialState.json');
     },
