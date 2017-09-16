@@ -15,7 +15,11 @@ preLoad.prototype = {
         } else {
             this.game.cache['level'] = 1
         }
-        this.inputMatrix = null;
+        cash = this.game.cache['cash']
+        if(!cash && cash != 0){
+            this.game.cache['cash'] = 1000
+        }
+        this.inputMatrix = null
         console.log("sdf",level);
         gameLogic.init(initial_state[this.game.cache['level']]["grid"]);
     },
@@ -30,17 +34,43 @@ preLoad.prototype = {
         var rows = initial_state[this.game.cache['level']]["no_of_rows"];
         var cols = initial_state[this.game.cache['level']]["no_of_cols"];
         var los = [];
+
         var deviceRatio = 1/((window.innerWidth / window.innerHeight))*rows/2;
         var sprite = this.game.add.sprite(0,0, 'bg');
         sprite.scale.setTo(window.innerWidth/1440, window.innerHeight/2560);
 
-        var back = this.game.add.sprite(window.innerWidth/12,window.innerHeight/16, 'back');
-        back.scale.setTo(1 / (deviceRatio/rows*3) , 1 / (deviceRatio/rows*3));
-        var holpos = this.game.add.sprite(window.innerWidth/12+window.innerWidth/4,window.innerHeight/16, 'holpos');
-        holpos.scale.setTo(1 / (deviceRatio/rows*3), 1 / (deviceRatio/rows*3));
-        var timer = this.game.add.sprite(window.innerWidth/12+ window.innerWidth/4 + window.innerWidth/4,window.innerHeight/16, 'timer');
-        timer.scale.setTo(1 / (deviceRatio/rows*3), 1 / (deviceRatio/rows*3));
-        var music = new Phaser.Sound(this.game,'music',1,true);
+        var back = this.game.add.sprite(0, 0, 'back');
+        back.alignIn(sprite, Phaser.TOP_LEFT);
+        back.scale.setTo(1 / (deviceRatio) , 1 / (deviceRatio));
+
+        // var back = this.game.add.sprite(window.innerWidth/12,window.innerHeight/16, 'back');
+        // back.scale.setTo(1 / (deviceRatio/rows*3) , 1 / (deviceRatio/rows*3));
+
+        var holpos = this.game.add.sprite(0, 0, 'holpos');
+        holpos.alignIn(sprite, Phaser.TOP_CENTER);
+        holpos.scale.setTo(1 / (deviceRatio) , 1 / (deviceRatio));
+
+        var style = {align: "center"};
+
+        var holpostext = this.game.add.text(0, 0, this.game.cache['cash'], style);
+        holpostext.alignIn(holpos, Phaser.CENTER, 10, 10);
+        holpostext.scale.setTo(1 / (deviceRatio) , 1 / (deviceRatio));
+
+        // var holpostext = this.game.add.text(window.innerWidth/7+window.innerWidth/4,window.innerHeight/10, this.game.cache['cash'], {});
+        // holpostext.scale.setTo(1 / (deviceRatio/rows*3), 1 / (deviceRatio/rows*3));
+
+        // var holpos = this.game.add.sprite(window.innerWidth/12+window.innerWidth/4,window.innerHeight/18, 'holpos');
+        // holpos.scale.setTo(1 / ((deviceRatio/rows*3)*3), 1 / ((deviceRatio/rows*3)*3));
+
+        //var timer = this.game.add.sprite(window.innerWidth/12+ window.innerWidth/4 + window.innerWidth/4,window.innerHeight/16, 'timer');
+        //timer.scale.setTo(1 / (deviceRatio/rows*3), 1 / (deviceRatio/rows*3));
+
+        var timer = this.game.add.sprite(0, 0, 'timer');
+        timer.alignIn(sprite, Phaser.TOP_RIGHT);
+        timer.scale.setTo(1 / (deviceRatio) , 1 / (deviceRatio), 0, 0);
+
+
+		var music = new Phaser.Sound(this.game,'music',1,true);
         music.play();
 
         var zombie = this.game.add.sprite(window.innerWidth/4,window.innerHeight/12, 'zombie');
@@ -170,6 +200,10 @@ preLoad.prototype = {
             this.isRotateEnabled = true
         }
         function showMonster(sprite, pointer){
+            if(this.game.cache['cash'] < 50){
+                return
+            }
+            this.game.cache['cash'] -= 50
             var origin = gameLogic.gridPayload
             for (var i=0; i<this.inputMatrix.length; i++){
                 for (var j=0; j<this.inputMatrix[i].length; j++){
@@ -182,6 +216,10 @@ preLoad.prototype = {
             this.create()
         }
         function showError(sprite, pointer){
+            if(this.game.cache['cash'] < 50){
+                return
+            }
+            this.game.cache['cash'] -= 50
             var wrongs = gameLogic.getWrong(this.inputMatrix)
             var limit = wrongs.length
             var ele = Math.floor((Math.random() * 100) + 1) % limit
@@ -192,6 +230,10 @@ preLoad.prototype = {
             if(!this.isRotateEnabled){
                 return
             }
+            if(this.game.cache['cash'] < 50){
+                return
+            }
+            this.game.cache['cash'] -= 50
             if(inputMatrix[i-1][j-1] == '\\'){
                 inputMatrix[i-1][j-1] = '/'
                 sprite.loadTexture('f')

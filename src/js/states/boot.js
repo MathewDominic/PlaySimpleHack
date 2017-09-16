@@ -24,7 +24,7 @@ boot.prototype = {
 
         this.game.load.image('bg_min', 'img/ftue/BG-min.jpg');
         this.game.load.image('proceed-button', 'img/ftue/proceed-min.png');
-        this.game.load.image('spash_min', 'img/ftue/splash-min.png');
+        this.game.load.image('spash_min', 'img/ftue/splash-min.jpg');
         this.game.load.image('hth_title', 'img/ftue/title-min.png');
 
 		this.game.load.image('vampire','img/Vampire.png');
@@ -66,8 +66,10 @@ boot.prototype = {
     },
 
     create: function() {
-        // var music = new Phaser.Sound(this.game,'music',1,true);
-        // music.play();
+
+        var sprite = this.game.add.sprite(0,0, 'bg');
+        sprite.scale.setTo(window.innerWidth/1440, window.innerHeight/2560);
+
         var button = this.game.add.button(this.game.world.centerX, 400, 'play-button', this.playTheGame, this, 2, 1, 0);
         button.anchor.set(0.5);
     },
