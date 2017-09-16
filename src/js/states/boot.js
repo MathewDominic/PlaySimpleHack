@@ -51,11 +51,18 @@ boot.prototype = {
 
     create: function() {
 
+        var deviceRatio = 1/((window.innerWidth / window.innerHeight));
         var sprite = this.game.add.sprite(0,0, 'bg');
         sprite.scale.setTo(window.innerWidth/1440, window.innerHeight/2560);
 
-        var button = this.game.add.button(this.game.world.centerX, 400, 'play-button', this.playTheGame, this, 2, 1, 0);
-        button.anchor.set(0.5);
+        var title = this.game.add.sprite(0,0, 'hth_title');
+        title.scale.setTo(1/3*deviceRatio, 1/3*deviceRatio);
+        title.alignIn(sprite, Phaser.CENTER);
+
+        var next_button = this.game.add.button((this.game.world.width)/3, (2.4*this.game.world.height)/3, 'proceed-button', this.playTheGame);
+        next_button.scale.setTo(1/4*deviceRatio, 1/4*deviceRatio);
+        //var button = this.game.add.button(this.game.world.centerX, 400, 'play-button', this.playTheGame, this, 2, 1, 0);
+        //button.anchor.set(0.5);
     },
 
     playTheGame: function(){
