@@ -47,15 +47,18 @@ boot.prototype = {
         this.game.load.image('5','img/5.png');
 
         this.game.load.json('initial_state', 'states/initialState.json');
+        // this.game.load.audio('music', ['img/music.mp3']);
     },
 
     create: function() {
+        // var music = new Phaser.Sound(this.game,'music',1,true);
+        // music.play();
         var button = this.game.add.button(this.game.world.centerX, 400, 'play-button', this.playTheGame, this, 2, 1, 0);
         button.anchor.set(0.5);
     },
 
     playTheGame: function(){
-        // this.game.state.start("Preload");
-        this.game.state.start("ScreenOne");
+        this.game.state.start("Preload");
+        // this.game.state.start("ScreenOne");
     }
 };
