@@ -15,7 +15,7 @@ preLoad.prototype = {
         } else {
             this.game.cache['level'] = 1
         }
-        this.inputMatrix = null
+        this.inputMatrix = null;
         console.log("sdf",level);
         gameLogic.init(initial_state[this.game.cache['level']]["grid"]);
     },
@@ -255,10 +255,21 @@ preLoad.prototype = {
                 direction = "left";
                 j--;
             }
+            los = [];
             lineOfSight(i,j,direction,inputMatrix,rows,cols,this.game);
             var sprite2 = [];
             for(var k = 0; k < los.length; k++) {
-                var spriteTemp = this.game.add.sprite(los[k][0], los[k][1], 'g');
+                // debugger;
+                var img = 'e';
+                if(los[k][3] == 'E') {
+                    img = los[k][2];
+                } else if(los[k][3] == '/') {
+                    img = 'f' + los[k][2][0];
+                }
+                else if(los[k][3] == '\\') {
+                    img = 'b' + los[k][2][0];
+                }
+                var spriteTemp = this.game.add.sprite(los[k][0], los[k][1], img);
                 spriteTemp.scale.setTo(1 / deviceRatio, 1 / deviceRatio);
                 sprite2.push(spriteTemp);
                 this.game.time.events.add(Phaser.Timer.SECOND * 3, function() {
@@ -272,9 +283,9 @@ preLoad.prototype = {
             if((j == 0 || i == 0  || j == (cols+1) || i == (rows+1))) {
                 return;
             }
-            console.log("this",game);
+            console.log("this",game,inputMatrix);
             console.log("current",i,j, direction);
-            los.push([138 / deviceRatio * (j - 1) + xOff, 138 / deviceRatio * (i - 1) + yOff,direction]);
+            los.push([138 / deviceRatio * (j - 1) + xOff, 138 / deviceRatio * (i - 1) + yOff,direction,inputMatrix[i-1][j-1]]);
             // var sprite = game.add.sprite(138 / deviceRatio * (i - 1) + xOff, 138 / deviceRatio * (j - 1) + yOff, 'b');
             // console.log("cordiates",138 / deviceRatio * (i - 1) + xOff, 138 / deviceRatio * (j - 1) + yOff);
             // sprite.scale.setTo(1 / deviceRatio, 1 / deviceRatio);

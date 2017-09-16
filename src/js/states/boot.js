@@ -46,8 +46,22 @@ boot.prototype = {
         this.game.load.image('4','img/4.png');
         this.game.load.image('5','img/5.png');
 
+        this.game.load.image('bd','img/bd.png');
+        this.game.load.image('bl','img/bl.png');
+        this.game.load.image('br','img/br.png');
+        this.game.load.image('bu','img/bu.png');
+        this.game.load.image('fl','img/fl.png');
+        this.game.load.image('fr','img/fr.png');
+        this.game.load.image('fd','img/fd.png');
+        this.game.load.image('fu','img/fu.png');
+        this.game.load.image('up','img/up.png');
+        this.game.load.image('left','img/left.png');
+        this.game.load.image('right','img/right.png');
+        this.game.load.image('down','img/down.png');
+
         this.game.load.json('initial_state', 'states/initialState.json');
         // this.game.load.audio('music', ['img/music.mp3']);
+        this.game.cache['level'] = 17;
     },
 
     create: function() {
