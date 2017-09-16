@@ -33,6 +33,7 @@ preLoad.prototype = {
         var rows = initial_state[this.game.cache['level']]["no_of_rows"];
         var cols = initial_state[this.game.cache['level']]["no_of_cols"];
         var los = [];
+
         var deviceRatio = 1/((window.innerWidth / window.innerHeight))*rows/2;
         var sprite = this.game.add.sprite(0,0, 'bg');
         sprite.scale.setTo(window.innerWidth/1440, window.innerHeight/2560);

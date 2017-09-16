@@ -11,7 +11,6 @@ screenOne.prototype = {
     },
 
     create: function() {
-
         var deviceRatio = 1/((window.innerWidth / window.innerHeight));
 
         var sprite = this.game.add.sprite(0, 0, 'ftue_1');
