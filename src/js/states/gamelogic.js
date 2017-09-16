@@ -160,6 +160,17 @@ module.exports = function () {
                 return true
             }
             return false
+        },
+        getWrong: function (payload) {
+            var wrongs = []
+            for(var i=0;i<payload.length; i++){
+                for (var j=0; j < payload[i].length; j++){
+                    if((payload[i][j] == "Z" || payload[i][j] == "V" || payload[i][j] == "G") && payload[i][j] != this.gridPayload[i][j]){
+                        wrongs.push([i,j])
+                    }
+                }
+            }
+            return wrongs
         }
     }
 }();

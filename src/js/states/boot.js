@@ -31,6 +31,14 @@ boot.prototype = {
         this.game.load.image('zombie','img/Zombie.png');
         this.game.load.image('ghost','img/Ghost.png');
 
+        this.game.load.image('se','img/show_error.png');
+        this.game.load.image('sm','img/show_monster.png');
+        this.game.load.image('tm','img/turn_mirror.png');
+
+        this.game.load.image('back','img/Back.png');
+        this.game.load.image('holpos','img/holy_options.png');
+        this.game.load.image('timer','img/Timer.png');
+
         this.game.load.image('0','img/0.png');
         this.game.load.image('1','img/1.png');
         this.game.load.image('2','img/2.png');
