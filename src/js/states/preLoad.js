@@ -13,7 +13,11 @@ preLoad.prototype = {
         if(level){
             this.game.cache['level'] += 1
         } else {
-            this.game.cache['level'] = 17
+            this.game.cache['level'] = 1
+        }
+        cash = this.game.cache['cash']
+        if(!cash && cash != 0){
+            this.game.cache['cash'] = 1000
         }
         this.inputMatrix = null
         console.log("sdf",level);
@@ -35,8 +39,10 @@ preLoad.prototype = {
 
         var back = this.game.add.sprite(window.innerWidth/12,window.innerHeight/16, 'back');
         back.scale.setTo(1 / (deviceRatio/rows*3) , 1 / (deviceRatio/rows*3));
-        var holpos = this.game.add.sprite(window.innerWidth/12+window.innerWidth/4,window.innerHeight/16, 'holpos');
-        holpos.scale.setTo(1 / (deviceRatio/rows*3), 1 / (deviceRatio/rows*3));
+        var holpos = this.game.add.sprite(window.innerWidth/12+window.innerWidth/4,window.innerHeight/18, 'holpos');
+        holpos.scale.setTo(1 / ((deviceRatio/rows*3)*3), 1 / ((deviceRatio/rows*3)*3));
+        var holpostext = this.game.add.text(window.innerWidth/7+window.innerWidth/4,window.innerHeight/10, this.game.cache['cash'], {});
+        holpostext.scale.setTo(1 / (deviceRatio/rows*3), 1 / (deviceRatio/rows*3));
         var timer = this.game.add.sprite(window.innerWidth/12+ window.innerWidth/4 + window.innerWidth/4,window.innerHeight/16, 'timer');
         timer.scale.setTo(1 / (deviceRatio/rows*3), 1 / (deviceRatio/rows*3));
 
@@ -113,6 +119,9 @@ preLoad.prototype = {
                         sprite.anchor.setTo(0, 0);
                         this.inputMatrix[j-1][i-1] = initial_state[this.game.cache['level']]["grid"][j-1][i-1]
                         inputMatrix[j-1][i-1] = initial_state[this.game.cache['level']]["grid"][j-1][i-1]
+                        if(gameLogic.isWin(inputMatrix)){
+                            this.game.state.start("Preload")
+                        }
                         this.showCorrect = null
                     } else if(this.showWrong && this.showWrong[0] == j-1 && this.showWrong[1] == i-1){
                         var sprite = this.game.add.sprite(138 / deviceRatio * (i - 1) + xOff, 138 / deviceRatio * (j - 1) + yOff, 'back');
@@ -163,6 +172,10 @@ preLoad.prototype = {
             this.isRotateEnabled = true
         }
         function showMonster(sprite, pointer){
+            if(this.game.cache['cash'] < 50){
+                return
+            }
+            this.game.cache['cash'] -= 50
             var origin = gameLogic.gridPayload
             for (var i=0; i<this.inputMatrix.length; i++){
                 for (var j=0; j<this.inputMatrix[i].length; j++){
@@ -175,6 +188,10 @@ preLoad.prototype = {
             this.create()
         }
         function showError(sprite, pointer){
+            if(this.game.cache['cash'] < 50){
+                return
+            }
+            this.game.cache['cash'] -= 50
             var wrongs = gameLogic.getWrong(this.inputMatrix)
             var limit = wrongs.length
             var ele = Math.floor((Math.random() * 100) + 1) % limit
@@ -185,6 +202,10 @@ preLoad.prototype = {
             if(!this.isRotateEnabled){
                 return
             }
+            if(this.game.cache['cash'] < 50){
+                return
+            }
+            this.game.cache['cash'] -= 50
             if(inputMatrix[i-1][j-1] == '\\'){
                 inputMatrix[i-1][j-1] = '/'
                 sprite.loadTexture('f')
