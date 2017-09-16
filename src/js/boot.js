@@ -16,6 +16,19 @@ boot.prototype = {
         this.game.load.image('bg', 'img/bp.jpg');
         this.game.load.image('play-button','img/play.png');
 
+        this.game.load.image('vampire','img/Vampire.png');
+        this.game.load.image('zombie','img/Zombie.png');
+        this.game.load.image('ghost','img/Ghost.png');
+
+        this.game.load.image('0','img/0.png');
+        this.game.load.image('1','img/1.png');
+        this.game.load.image('2','img/2.png');
+        this.game.load.image('3','img/3.png');
+        this.game.load.image('4','img/4.png');
+        this.game.load.image('5','img/5.png');
+
+        this.game.cache['level'] = 0;
+
         this.game.load.json('initial_state', 'states/initialState.json');
     },
 

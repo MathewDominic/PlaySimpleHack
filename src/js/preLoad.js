@@ -20,17 +20,35 @@ preLoad.prototype = {
     },
 
     create: function() {
-        var sprite = this.game.add.sprite(0,0, 'bg');
-        sprite.scale.setTo(window.innerWidth/1440, window.innerHeight/2560);
-        console.log("asd",initial_state);
+        // var zombieCount = initial_state[this.game.cache['level']]['mummies'];
+        // var ghostCount = initial_state[this.game.cache['level']]['ghosts'];
+        // var VampireCount = initial_state[this.game.cache['level']]['vamps'];
         var rows = initial_state[this.game.cache['level']]["no_of_rows"];
         var cols = initial_state[this.game.cache['level']]["no_of_cols"];
-
         var deviceRatio = 1/((window.innerWidth / window.innerHeight))*rows/2;
+        var sprite = this.game.add.sprite(0,0, 'bg');
+        sprite.scale.setTo(window.innerWidth/1440, window.innerHeight/2560);
+        var zombie = this.game.add.sprite(window.innerWidth/4,window.innerHeight/12, 'zombie');
+        zombie.scale.setTo(1 / (deviceRatio/rows*3) , 1 / (deviceRatio/rows*3));
+        var ghost = this.game.add.sprite(window.innerWidth/4+window.innerWidth/6,window.innerHeight/12, 'ghost');
+        ghost.scale.setTo(1 / (deviceRatio/rows*3), 1 / (deviceRatio/rows*3));
+        var vampire = this.game.add.sprite(window.innerWidth/4+ window.innerWidth/6 + window.innerWidth/6,window.innerHeight/12, 'vampire');
+        vampire.scale.setTo(1 / (deviceRatio/rows*3), 1 / (deviceRatio/rows*3));
+
+        var zombieCount = this.game.add.sprite(window.innerWidth/4,window.innerHeight/6, initial_state[this.game.cache['level']]['mummies'].toString());
+        zombieCount.scale.setTo(1 / (deviceRatio/rows*3) , 1 / (deviceRatio/rows*3));
+        var ghostCount = this.game.add.sprite(window.innerWidth/4+window.innerWidth/6,window.innerHeight/6, initial_state[this.game.cache['level']]['ghosts'].toString());
+        ghostCount.scale.setTo(1 / (deviceRatio/rows*3), 1 / (deviceRatio/rows*3));
+        var vampireCount = this.game.add.sprite(window.innerWidth/4+ window.innerWidth/6 + window.innerWidth/6,window.innerHeight/6, initial_state[this.game.cache['level']]['vamps'].toString());
+        vampireCount.scale.setTo(1 / (deviceRatio/rows*3), 1 / (deviceRatio/rows*3));
+        // var vampire = this.game.add.sprite(window.innerWidth/4,window.innerHeight/8, 'vampire');
+        // vampire.scale.setTo(1 / deviceRatio , 1 / deviceRatio);
+        // var zombie = this.game.add.sprite(window.innerWidth/4+window.innerWidth/6,window.innerHeight/8, 'zombie');
+        // zombie.scale.setTo(1 / deviceRatio, 1 / deviceRatio);
 
         var txtStyle = {
             font: '65px Arial',
-            fill: '#ff0044',
+            fill: '#ffffff',
             align: 'center'
         };
         var logo = [];
@@ -66,17 +84,17 @@ preLoad.prototype = {
 
                     var text = this.game.add.text(138 / deviceRatio * (i - 1) + xOff, 138 / deviceRatio * (j - 1) + yOff, count.toString(), txtStyle);
                     text.scale.setTo(1/deviceRatio, 1/deviceRatio);
+                    text.inputEnabled = true;
+                    text.events.onInputDown.add(onDownCount.bind(this,j,i,inputMatrix,rows,cols), this);
                     text.anchor.setTo(0, 0);
                 } else {
                     var cellSprite;
                     if(initial_state[this.game.cache['level']]["grid"][j-1][i-1] == '/') {
                         var sprite = this.game.add.sprite(138 / deviceRatio * (i - 1) + xOff, 138 / deviceRatio * (j - 1) + yOff, 'f');
                         sprite.scale.setTo(1 / deviceRatio, 1 / deviceRatio);
-                        sprite.inputEnabled = true;
                     } else if(initial_state[this.game.cache['level']]["grid"][j-1][i-1] == '\\') {
                         var sprite = this.game.add.sprite(138 / deviceRatio * (i - 1) + xOff, 138 / deviceRatio * (j - 1) + yOff, 'b');
                         sprite.scale.setTo(1 / deviceRatio, 1 / deviceRatio);
-                        sprite.inputEnabled = true;
                     } else {
                         var sprite = this.game.add.sprite(138 / deviceRatio * (i - 1) + xOff, 138 / deviceRatio * (j - 1) + yOff, 'e');
                         sprite.scale.setTo(1 / deviceRatio, 1 / deviceRatio);
@@ -113,7 +131,47 @@ preLoad.prototype = {
                 this.game.state.start("Preload")
             }
         }
-
+        function onDownCount(i,j,inputMatrix, rows, cols, sprite, pointer) {
+            // console.log(i,j,rows,cols);
+            var direction;
+            if(i == rows + 1) {
+                direction = "up";
+            } else if(i == 0) {
+                direction = "down";
+            } else if(j == 0) {
+                direction = "right";
+            } else if(j == cols+1) {
+                direction = "left";
+            }
+            lineOfSight(i,j,direction,inputMatrix,rows,cols)
+        }
+        function lineOfSight(i,j,direction,inputMatrix,rows,cols) {
+            // if((j == -1 || i == -1  || j == (cols+2) || i == (rows+2))) {
+            //     return;
+            // }
+            if(direction == "up") {
+                if(i == 1) {
+                    return;
+                }
+                console.log(i-1,j);
+                lineOfSight(i-1,j,direction,inputMatrix,rows,cols)
+            } else if(direction == "down") {
+                if(i == rows) {
+                    return;
+                }
+                console.log(i + 1, j);
+                lineOfSight(i+1,j,direction,inputMatrix,rows,cols)
+            } else if(direction == "right") {
+                console.log(i,j+1);
+                lineOfSight(i,j+1,direction,inputMatrix,rows,cols)
+            } else if(direction == "left") {
+                console.log(i, j-1);
+                lineOfSight(i,j-1,direction,inputMatrix,rows,cols)
+            }
+            // } else if(direction == "up") {
+            //     console.log(i-1,j);
+            // }
+        }
         //this.game.state.start("InitGame");
     }
 };
