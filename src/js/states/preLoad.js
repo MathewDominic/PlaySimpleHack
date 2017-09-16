@@ -23,6 +23,7 @@ preLoad.prototype = {
     inputMatrix: null,
 
     create: function() {
+        console.log("json",initial_state[this.game.cache['level']]);
         // var zombieCount = initial_state[this.game.cache['level']]['mummies'];
         // var ghostCount = initial_state[this.game.cache['level']]['ghosts'];
         // var VampireCount = initial_state[this.game.cache['level']]['vamps'];
@@ -210,9 +211,15 @@ preLoad.prototype = {
                 this.inputMatrix[i-1][j-1] = 'Z'
             }
             else if (sprite.key === 'z') {
-                sprite.loadTexture('g');
-                inputMatrix[i-1][j-1] = 'G'
-                this.inputMatrix[i-1][j-1] = 'G'
+                if(initial_state[this.game.cache['level']]["ghosts"] == 0 && initial_state[this.game.cache['level']]["vamps"] == 0) {
+                    sprite.loadTexture('e');
+                    inputMatrix[i-1][j-1] = 'E';
+                    this.inputMatrix[i-1][j-1] = 'E';
+                } else {
+                    sprite.loadTexture('g');
+                    inputMatrix[i - 1][j - 1] = 'G'
+                    this.inputMatrix[i - 1][j - 1] = 'G'
+                }
             }
             else if (sprite.key === 'g') {
                 sprite.loadTexture('v');
