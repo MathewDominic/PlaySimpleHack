@@ -16,7 +16,13 @@ boot.prototype = {
         this.game.load.image('bg', 'img/bp.jpg');
         this.game.load.image('play-button','img/play.png');
 
-        this.game.load.image('vampire','img/Vampire.png');
+        this.game.load.image('ftue_1', 'img/ftue/1a-min.jpg');
+        this.game.load.image('ftue_2', 'img/ftue/2-min.png');
+        this.game.load.image('ftue_3', 'img/ftue/3-min.png');
+        this.game.load.image('ftue_4', 'img/ftue/4-min.png');
+        this.game.load.image('next_ftue', 'img/ftue/next-min.png');
+
+		this.game.load.image('vampire','img/Vampire.png');
         this.game.load.image('zombie','img/Zombie.png');
         this.game.load.image('ghost','img/Ghost.png');
 
@@ -27,7 +33,6 @@ boot.prototype = {
         this.game.load.image('4','img/4.png');
         this.game.load.image('5','img/5.png');
 
-        this.game.cache['level'] = 0;
 
         this.game.load.json('initial_state', 'states/initialState.json');
     },
@@ -39,5 +44,6 @@ boot.prototype = {
 
     playTheGame: function(){
         this.game.state.start("Preload");
+        // this.game.state.start("ScreenOne");
     }
 };

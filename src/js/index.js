@@ -2,19 +2,21 @@
  * Created by prashant on 15/09/17.
  */
 
-var boot = require('./boot');
-var levelOptions = require('./levelOptions');
-var preLoad = require('./preLoad');
-var initGame = require('./initGame');
+// States designed for the Game.
+var boot = require('./states/boot');
+var levelOptions = require('./states/levelOptions');
+var preLoad = require('./states/preLoad');
+var initGame = require('./states/initGame');
+
+// Screens required for FTUE.
+var screenOne = require('./ftue/screenOne');
+var screenTwo = require('./ftue/screenTwo');
+var screenThree = require('./ftue/screenThree');
+var screenFour = require('./ftue/screenFour');
+
 
 window.onload = function() {
 
-    var rows = 5;
-    var cols = 5;
-    var deviceRatio = 1/((window.innerWidth / window.innerHeight))*rows/2;
-
-    var newWidth = window.innerWidth * deviceRatio;
-    var newHeight = window.innerHeight * deviceRatio;
     var game = new Phaser.Game(window.innerWidth, window.innerHeight , Phaser.AUTO, 'HighwayToHell');
 
     console.log("Registering");
@@ -23,16 +25,11 @@ window.onload = function() {
     game.state.add("LevelOptions", levelOptions);
     game.state.add("Preload", preLoad);
     game.state.add("InitGame",initGame);
-    game.state.start("Boot");
 
-    function onDown(sprite, pointer) {
-        if (sprite.key === 'e')
-            sprite.loadTexture('z');
-        else if (sprite.key === 'z')
-            sprite.loadTexture('g');
-        else if (sprite.key === 'g')
-            sprite.loadTexture('v');
-        else if (sprite.key === 'v')
-            sprite.loadTexture('e');
-    }
+    game.state.add("ScreenOne", screenOne);
+    game.state.add("ScreenTwo", screenTwo);
+    game.state.add("ScreenThree", screenThree);
+    game.state.add("ScreenFour", screenFour);
+
+    game.state.start("Boot");
 };

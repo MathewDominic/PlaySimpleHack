@@ -3,7 +3,7 @@ var preLoad = function(game) {
 };
 
 module.exports = preLoad;
-var gameLogic = require('./gameLogic.js');
+var gameLogic = require('./gamelogic.js');
 
 preLoad.prototype = {
 
