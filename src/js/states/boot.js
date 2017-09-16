@@ -13,6 +13,7 @@ boot.prototype = {
         this.game.load.image('e', 'img/Block.png');
         this.game.load.image('f', 'img/Mirror_m.png');
         this.game.load.image('b', 'img/Mirror_reverse_m.png');
+        this.game.load.image('x', 'img/x.png');
         this.game.load.image('bg', 'img/bp.jpg');
         this.game.load.image('play-button','img/play.png');
 

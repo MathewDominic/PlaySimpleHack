@@ -27,7 +27,9 @@ preLoad.prototype = {
     inputMatrix: null,
 
     create: function() {
+        var inputMatrix = JSON.parse(JSON.stringify(initial_state[this.game.cache['level']]["grid"]));
         console.log("json",initial_state[this.game.cache['level']]);
+
         // var zombieCount = initial_state[this.game.cache['level']]['mummies'];
         // var ghostCount = initial_state[this.game.cache['level']]['ghosts'];
         // var VampireCount = initial_state[this.game.cache['level']]['vamps'];
@@ -97,7 +99,7 @@ preLoad.prototype = {
         };
         var logo = [];
         var xOff, yOff;
-        var inputMatrix = JSON.parse(JSON.stringify(initial_state[this.game.cache['level']]["grid"]));
+
         for(var i=0;i<inputMatrix.length;i++) {
             for(var j=0;j<inputMatrix[i].length;j++) {
                 if(!((inputMatrix[i][j] == '/') || (inputMatrix[i][j] == '\\')))
@@ -151,7 +153,7 @@ preLoad.prototype = {
                         }
                         this.showCorrect = null
                     } else if(this.showWrong && this.showWrong[0] == j-1 && this.showWrong[1] == i-1){
-                        var sprite = this.game.add.sprite(138 / deviceRatio * (i - 1) + xOff, 138 / deviceRatio * (j - 1) + yOff, 'back');
+                        var sprite = this.game.add.sprite(138 / deviceRatio * (i - 1) + xOff, 138 / deviceRatio * (j - 1) + yOff, 'x');
                         sprite.scale.setTo(1/deviceRatio, 1/deviceRatio);
                         sprite.inputEnabled = true;
                         sprite.events.onInputDown.add(onDown.bind(this,j,i,inputMatrix), this);
