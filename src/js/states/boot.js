@@ -61,6 +61,7 @@ boot.prototype = {
 
         this.game.load.json('initial_state', 'states/initialState.json');
         // this.game.load.audio('music', ['img/music.mp3']);
+        this.game.load.audio('music', ['img/music.mp3']);
         this.game.cache['level'] = 17;
     },
 
