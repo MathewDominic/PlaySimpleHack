@@ -39,6 +39,7 @@ boot.prototype = {
         this.game.load.image('back','img/Back.png');
         this.game.load.image('holpos','img/holy_options.png');
         this.game.load.image('timer','img/Timer.png');
+        this.game.load.image('congrats','img/Congrats.jpg');
 
         this.game.load.image('0','img/0.png');
         this.game.load.image('1','img/1.png');
