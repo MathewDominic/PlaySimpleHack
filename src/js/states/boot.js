@@ -83,7 +83,6 @@ boot.prototype = {
     },
 
     playTheGame: function(){
-        this.game.state.start("Preload");
-        // this.game.state.start("ScreenOne");
+        this.game.state.start("LevelOptions");
     }
 };

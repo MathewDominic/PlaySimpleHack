@@ -24,7 +24,7 @@ window.onload = function() {
     game.state.add("Boot", boot);
     game.state.add("LevelOptions", levelOptions);
     game.state.add("Preload", preLoad);
-    game.state.add("InitGame",initGame);
+    game.state.add("InitGame", initGame);
 
     game.state.add("ScreenOne", screenOne);
     game.state.add("ScreenTwo", screenTwo);
