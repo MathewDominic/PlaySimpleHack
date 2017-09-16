@@ -13,7 +13,7 @@ preLoad.prototype = {
         if(level){
             this.game.cache['level'] += 1
         } else {
-            this.game.cache['level'] = 2
+            this.game.cache['level'] = 60
         }
         cash = this.game.cache['cash']
         if(!cash && cash != 0){
@@ -73,8 +73,11 @@ preLoad.prototype = {
         // timer.alignIn(bg, Phaser.TOP_RIGHT);
         // timer.scale.setTo(1 / (devRatio) , 1 / (devRatio), 0, 0);
 
-		var music = new Phaser.Sound(this.game,'music',1,true);
-        music.play();
+        if(!this.playing){
+            var music = new Phaser.Sound(this.game,'music',1,true);
+            music.play();
+            this.playing = true
+        }
 
         var zombie = this.game.add.sprite(window.innerWidth/4,window.innerHeight/12, 'zombie');
         zombie.scale.setTo(1 / (deviceRatio/rows*3) , 1 / (deviceRatio/rows*3));
@@ -150,7 +153,6 @@ preLoad.prototype = {
                         this.inputMatrix[j-1][i-1] = initial_state[this.game.cache['level']]["grid"][j-1][i-1]
                         inputMatrix[j-1][i-1] = initial_state[this.game.cache['level']]["grid"][j-1][i-1]
                         if(gameLogic.isWin(inputMatrix)){
-                            music.stop();
                             this.game.state.start("Preload")
                         }
                         this.showCorrect = null
@@ -302,7 +304,6 @@ preLoad.prototype = {
                 this.inputMatrix[i-1][j-1] = 'E'
             }
             if(gameLogic.isWin(inputMatrix)){
-                music.stop();
                 this.game.state.start("Preload")
             }
         }
