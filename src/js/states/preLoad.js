@@ -58,9 +58,9 @@ preLoad.prototype = {
         holpostext.alignIn(holpos, Phaser.CENTER, 10, 10);
         holpostext.scale.setTo(1 / (devRatio) , 1 / (devRatio));
 
-        var timer = this.game.add.sprite(0, 0, 'timer');
-        timer.alignIn(bg, Phaser.TOP_RIGHT);
-        timer.scale.setTo(1 / (devRatio) , 1 / (devRatio), 0, 0);
+        // var timer = this.game.add.sprite(0, 0, 'timer');
+        // timer.alignIn(bg, Phaser.TOP_RIGHT);
+        // timer.scale.setTo(1 / (devRatio) , 1 / (devRatio), 0, 0);
 
         if(!this.playing){
             var music = new Phaser.Sound(this.game,'music',1,true);
@@ -68,11 +68,11 @@ preLoad.prototype = {
             this.playing = true
         }
 
-        var zombie = this.game.add.sprite(window.innerWidth/4,window.innerHeight/9, 'zombie');
+        var zombie = this.game.add.sprite(window.innerWidth/4,window.innerHeight/12, 'zombie');
         zombie.scale.setTo(1 / (deviceRatio/rows*3) , 1 / (deviceRatio/rows*3));
-        var ghost = this.game.add.sprite(window.innerWidth/4+window.innerWidth/6,window.innerHeight/9, 'ghost');
+        var ghost = this.game.add.sprite(window.innerWidth/4+window.innerWidth/6,window.innerHeight/12, 'ghost');
         ghost.scale.setTo(1 / (deviceRatio/rows*3), 1 / (deviceRatio/rows*3));
-        var vampire = this.game.add.sprite(window.innerWidth/4+ window.innerWidth/6 + window.innerWidth/6,window.innerHeight/9, 'vampire');
+        var vampire = this.game.add.sprite(window.innerWidth/4+ window.innerWidth/6 + window.innerWidth/6,window.innerHeight/12, 'vampire');
         vampire.scale.setTo(1 / (deviceRatio/rows*3), 1 / (deviceRatio/rows*3));
 
         var zombieCount = this.game.add.sprite(window.innerWidth/4,window.innerHeight/6, initial_state[this.game.cache['level']]['mummies'].toString());
@@ -138,8 +138,12 @@ preLoad.prototype = {
                         this.inputMatrix[j-1][i-1] = initial_state[this.game.cache['level']]["grid"][j-1][i-1]
                         inputMatrix[j-1][i-1] = initial_state[this.game.cache['level']]["grid"][j-1][i-1]
                         if(gameLogic.isWin(inputMatrix)){
-                            this.game.time.events.add(Phaser.Timer.SECOND * 3, function() {
-                                this.game.state.start("Preload");
+                            this.game.time.events.add(Phaser.Timer.SECOND * 0.6, function() {
+                                var popup = this.game.add.sprite(0, 0, 'congrats');
+                                popup.scale.setTo(window.innerWidth / 1440, window.innerHeight / 2560);
+                                this.game.time.events.add(Phaser.Timer.SECOND * 1.5, function () {
+                                    this.game.state.start("Preload");
+                                }, this);
                             }, this);
                         }
                         this.showCorrect = null
@@ -279,10 +283,6 @@ preLoad.prototype = {
                 this.game.time.events.add(Phaser.Timer.SECOND * 0.6, function() {
                     var popup = this.game.add.sprite(0, 0, 'congrats');
                     popup.scale.setTo(window.innerWidth / 1440, window.innerHeight / 2560);
-                    // popup.alpha = 0.8;
-                    // popup.anchor.set(0.5);
-                    // popup.inputEnabled = true;
-                    // popup.input.enableDrag();
                     this.game.time.events.add(Phaser.Timer.SECOND * 1.5, function () {
                         this.game.state.start("Preload");
                     }, this);
