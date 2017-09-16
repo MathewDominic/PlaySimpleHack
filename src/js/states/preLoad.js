@@ -38,14 +38,37 @@ preLoad.prototype = {
         var sprite = this.game.add.sprite(0,0, 'bg');
         sprite.scale.setTo(window.innerWidth/1440, window.innerHeight/2560);
 
-        var back = this.game.add.sprite(window.innerWidth/12,window.innerHeight/16, 'back');
-        back.scale.setTo(1 / (deviceRatio/rows*3) , 1 / (deviceRatio/rows*3));
-        var holpos = this.game.add.sprite(window.innerWidth/12+window.innerWidth/4,window.innerHeight/18, 'holpos');
-        holpos.scale.setTo(1 / ((deviceRatio/rows*3)*3), 1 / ((deviceRatio/rows*3)*3));
-        var holpostext = this.game.add.text(window.innerWidth/7+window.innerWidth/4,window.innerHeight/10, this.game.cache['cash'], {});
-        holpostext.scale.setTo(1 / (deviceRatio/rows*3), 1 / (deviceRatio/rows*3));
-        var timer = this.game.add.sprite(window.innerWidth/12+ window.innerWidth/4 + window.innerWidth/4,window.innerHeight/16, 'timer');
-        timer.scale.setTo(1 / (deviceRatio/rows*3), 1 / (deviceRatio/rows*3));
+        var back = this.game.add.sprite(0, 0, 'back');
+        back.alignIn(sprite, Phaser.TOP_LEFT);
+        back.scale.setTo(1 / (deviceRatio) , 1 / (deviceRatio));
+
+        // var back = this.game.add.sprite(window.innerWidth/12,window.innerHeight/16, 'back');
+        // back.scale.setTo(1 / (deviceRatio/rows*3) , 1 / (deviceRatio/rows*3));
+
+        var holpos = this.game.add.sprite(0, 0, 'holpos');
+        holpos.alignIn(sprite, Phaser.TOP_CENTER);
+        holpos.scale.setTo(1 / (deviceRatio) , 1 / (deviceRatio));
+
+        var style = {align: "center"};
+
+        var holpostext = this.game.add.text(0, 0, this.game.cache['cash'], style);
+        holpostext.alignIn(holpos, Phaser.CENTER, 10, 10);
+        holpostext.scale.setTo(1 / (deviceRatio) , 1 / (deviceRatio));
+
+        // var holpostext = this.game.add.text(window.innerWidth/7+window.innerWidth/4,window.innerHeight/10, this.game.cache['cash'], {});
+        // holpostext.scale.setTo(1 / (deviceRatio/rows*3), 1 / (deviceRatio/rows*3));
+
+        // var holpos = this.game.add.sprite(window.innerWidth/12+window.innerWidth/4,window.innerHeight/18, 'holpos');
+        // holpos.scale.setTo(1 / ((deviceRatio/rows*3)*3), 1 / ((deviceRatio/rows*3)*3));
+
+        //var timer = this.game.add.sprite(window.innerWidth/12+ window.innerWidth/4 + window.innerWidth/4,window.innerHeight/16, 'timer');
+        //timer.scale.setTo(1 / (deviceRatio/rows*3), 1 / (deviceRatio/rows*3));
+
+        var timer = this.game.add.sprite(0, 0, 'timer');
+        timer.alignIn(sprite, Phaser.TOP_RIGHT);
+        timer.scale.setTo(1 / (deviceRatio) , 1 / (deviceRatio), 0, 0);
+
+
 
         var zombie = this.game.add.sprite(window.innerWidth/4,window.innerHeight/12, 'zombie');
         zombie.scale.setTo(1 / (deviceRatio/rows*3) , 1 / (deviceRatio/rows*3));
